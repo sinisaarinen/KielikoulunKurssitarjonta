@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Course</th>
+      <th>Course code</th>
+      <th>Language</th>
+      <th>Level</th>
+      <th>Spots</th>
+      <th>Description</th>
+      <th>Registrations open</th>
+    </tr>
+    {% for course in courses %}
+    <tr>
+      <td>{{ course.name }}</td>
+      <td>{{ course.coursecode }}</td>
+      <td>{{ course.language }}</td>
+      <td>{{ course.level }}</td>
+      <td>{{ course.spots }}</td>
+      <td>{{ course.description }}</td>
+      <td>{{ course.registrationsopen }}</td>
+      <td><form method="POST" action="{{url_for('courses_update', course_id=course.id) }}">
+       <input type="submit" value="Open registrations"/>
+      </form></td>    
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
