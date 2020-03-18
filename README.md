@@ -6,12 +6,12 @@ Kielikoulun sivuilla on mahdollista ilmoittautua eri kielten kursseille sekä ha
 
 Alustava lista toiminnoista:
 
-    kirjautuminen
-    uuden kurssin lisäys ja muokkaus
-    kurssille ilmoittautuminen ja ilmoittautumisen muokkaus
-    paikkatilanteiden tarkastelu
-    kurssien hakeminen kielen perusteella
-    kurssien hakeminen ajankohdan perusteella
-    kurssien hakeminen taitotason perusteella
-    tarkempien kurssikuvausten tarkastelu
-    kurssin peruutus
+- kirjautuminen
+- uuden kurssin lisäys ja muokkaus
+- kurssille ilmoittautuminen ja ilmoittautumisen muokkaus
+- paikkatilanteiden tarkastelu
+- kurssien hakeminen kielen perusteella
+- kurssien hakeminen ajankohdan perusteella
+- kurssien hakeminen taitotason perusteella
+- tarkempien kurssikuvausten tarkastelu
+- kurssin peruutus
