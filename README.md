@@ -1,4 +1,4 @@
-Kielikoulun kurssitarjonta
+# Kielikoulun kurssitarjonta
 
 Kielikoulun kurssitarjonta on Helsingin yliopiston kevään 2020 Tietokantasovellus-kurssin harjoitustyö.
 
