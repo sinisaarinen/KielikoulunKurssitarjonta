@@ -15,3 +15,7 @@ Alustava lista toiminnoista:
 - kurssien hakeminen taitotason perusteella
 - tarkempien kurssikuvausten tarkastelu
 - kurssin peruutus
+
+Sovellus Herokussa: https://tsoha-harjoitus.herokuapp.com/
+
+Tietokantakaavio: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/tietokantakaavio_paivitetty.png
