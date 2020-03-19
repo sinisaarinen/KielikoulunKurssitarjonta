@@ -16,4 +16,5 @@ Alustava lista toiminnoista:
 - tarkempien kurssikuvausten tarkastelu
 - kurssin peruutus
 
-https://tsoha-harjoitus.herokuapp.com/
+Sovellus Herokussa: https://tsoha-harjoitus.herokuapp.com/
+Tietokantakaavio: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/tietokantakaavio_paivitetty.png
