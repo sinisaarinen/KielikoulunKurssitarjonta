@@ -15,3 +15,5 @@ Alustava lista toiminnoista:
 - kurssien hakeminen taitotason perusteella
 - tarkempien kurssikuvausten tarkastelu
 - kurssin peruutus
+
+https://tsoha-harjoitus.herokuapp.com/
