@@ -19,3 +19,5 @@ Alustava lista toiminnoista:
 Sovellus Herokussa: https://tsoha-harjoitus.herokuapp.com/
 
 Tietokantakaavio: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/tietokantakaavio_paivitetty.png
+
+Käyttötapauksista: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/documentation/usecases.md
