@@ -1,6 +1,7 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.courses.models import Course
+from application.courses.forms import CourseForm
 
 @app.route("/courses", methods=["GET"])
 def courses_index():
@@ -8,7 +9,7 @@ def courses_index():
 
 @app.route("/courses/new/")
 def courses_form():
-    return render_template("courses/new.html")
+    return render_template("courses/new.html", form = CourseForm())
 
 @app.route("/courses/<course_id>", methods=["POST"])
 def courses_update(course_id):
@@ -21,11 +22,15 @@ def courses_update(course_id):
 
 @app.route("/courses/", methods=["POST"])
 def courses_create():
-    a = Course(request.form.get("name"), request.form.get("coursecode"), \
-        request.form.get("language"), request.form.get("level"), request.form.get("spots"), \
-        request.form.get("description"), request.form.get("registrationsopen"))
+    form = CourseForm(request.form)
+    
+    if not form.validate():
+        return render_template("courses/new.html", form = form)
 
-    db.session().add(a)
+    c = Course(form.name.data, form.coursecode.data, form.language.data, \
+        form.level.data, form.spots.data, form.description.data, form.registrationsopen.data)
+
+    db.session().add(c)
     db.session().commit()
 
     return redirect(url_for("courses_index"))

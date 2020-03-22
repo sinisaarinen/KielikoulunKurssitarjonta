@@ -1,13 +1,109 @@
-{% extends "layout.html" %}
   
 {% block body %}
 <form method="POST" action="{{ url_for('courses_create') }}">
-  Name: <input type="text" name="name"/>
-  Course code: <input type="text" name="coursecode"/>
-  Language: <input type="text" name="language"/>
-  Level: <input type="text" name="level"/>
-  Spots: <input type="text" name="spots"/>
-  Description: <input type="text" name="description"/>
-  <input type="submit" value="Add a new course"/>
+  <table>
+      <tr>
+	<td>
+	  {{ form.name.label }}
+	</td>
+	<td>
+	  {{ form.name }}
+	</td>
+	<td>
+	  <ul>
+	    {% for error in form.name.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>	
+      </tr>
+	 <tr>
+        <td>
+          {{ form.coursecode.label }}
+        </td>
+        <td>
+          {{ form.coursecode }}
+        </td>
+	<td>
+	  <ul>
+	    {% for error in form.coursecode.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+	 <tr>
+        <td>
+          {{ form.language.label }}
+        </td>
+        <td>
+          {{ form.language }}
+        </td>
+	<td>
+	  <ul>
+	    {% for error in form.language.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+	 <tr>
+        <td>
+          {{ form.level.label }}
+        </td>
+        <td>
+          {{ form.level }}
+        </td>
+	<td>
+	  <ul>
+	    {% for error in form.level.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+	 <tr>
+        <td>
+          {{ form.spots.label }}
+        </td>
+        <td>
+          {{ form.spots }}
+        </td>
+	<td>
+	  <ul>
+	    {% for error in form.spots.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+	 <tr>
+        <td>
+          {{ form.description.label }}
+        </td>
+        <td>
+          {{ form.description }}
+        </td>
+	<td>
+	  <ul>
+	    {% for error in form.description.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+	  </ul>
+	</td>
+      </tr>
+	 <tr>
+        <td>
+          {{ form.registrationsopen.label }}
+        </td>
+        <td>
+          {{ form.registrationsopen }}
+        </td>
+      </tr>
+      <tr>
+	<td colspan="2">
+   <input type="submit" value="Add a new course"/>
+  </td>
+ </tr> 
 </form>
 {% endblock %}
