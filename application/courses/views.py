@@ -1,4 +1,5 @@
 from application import app, db
+from flask_login import login_required
 from flask import redirect, render_template, request, url_for
 from application.courses.models import Course
 from application.courses.forms import CourseForm
@@ -8,10 +9,12 @@ def courses_index():
     return render_template("courses/list.html", courses = Course.query.all())
 
 @app.route("/courses/new/")
+@login_required
 def courses_form():
     return render_template("courses/new.html", form = CourseForm())
 
 @app.route("/courses/<course_id>", methods=["POST"])
+@login_required
 def courses_update(course_id):
 
     c = Course.query.get(course_id)
@@ -21,6 +24,7 @@ def courses_update(course_id):
     return redirect(url_for("courses_index"))
 
 @app.route("/courses/", methods=["POST"])
+@login_required
 def courses_create():
     form = CourseForm(request.form)
     
