@@ -23,7 +23,7 @@ def courses_update(course_id):
     
     return redirect(url_for("courses_index"))
 
-@app.route("/courses/delete/id", methods=["POST"])
+@app.route("/courses/delete/<course_id>", methods=["POST"])
 @login_required
 def courses_delete(course_id):
 
