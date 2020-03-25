@@ -23,6 +23,16 @@ def courses_update(course_id):
     
     return redirect(url_for("courses_index"))
 
+@app.route("/courses/delete/id", methods=["POST"])
+@login_required
+def courses_delete(course_id):
+
+    c = Course.query.get(course_id)
+    db.session.delete(c)
+    db.session().commit()
+
+    return redirect(url_for("courses_index"))
+
 @app.route("/courses/", methods=["POST"])
 @login_required
 def courses_create():

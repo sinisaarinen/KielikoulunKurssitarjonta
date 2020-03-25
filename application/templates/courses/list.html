@@ -22,7 +22,10 @@
       <td>{{ course.registrationsopen }}</td>
       <td><form method="POST" action="{{url_for('courses_update', course_id=course.id) }}">
        <input type="submit" value="Open registrations"/>
-      </form></td>    
+      </form></td>
+    <td><form method="POST" action="{{url_for('courses_delete', course_id=course.id) }}">
+       <input type="submit" value="Delete course"/>
+      </form></td>
       </tr>
     {% endfor %}
   </table>
