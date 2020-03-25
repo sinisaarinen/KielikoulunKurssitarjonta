@@ -2,7 +2,7 @@
 
 ## Käyttötapaukset rooleittain
 
-# 1. Opiskelija
+### 1. Opiskelija
 
 1.1 Järjestelmään rekisteröityminen ja kirjautuminen
 
@@ -19,7 +19,7 @@
 
 - Käyttäjä voi ilmoittautua kurssille, jos ilmoittautuminen on auki ja kurssilla on tilaa
 
-# 2. Admin
+### 2. Admin
 
 2.1 Järjestelmään rekisteröityminen ja kirjautuminen
 
