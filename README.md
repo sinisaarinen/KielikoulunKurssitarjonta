@@ -17,6 +17,7 @@ Alustava lista toiminnoista:
 - kurssin peruutus
 
 Sovellus Herokussa: https://tsoha-harjoitus.herokuapp.com/
+ - kirjaudu sisään käyttäjätunnuksella "hello" ja salasanalla "world"
 
 Tietokantakaavio: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/tietokantakaavio_paivitetty.png
 
