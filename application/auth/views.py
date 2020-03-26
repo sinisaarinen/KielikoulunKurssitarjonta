@@ -17,9 +17,6 @@ def auth_login():
     if not user:
         return render_template("auth/loginform.html", form = form,
                                error = "No such username or password")
-    if not form.validate():
-        return render_template("auth/loginform.html", form = form) 
-
 
     login_user(user)
     return redirect(url_for("index"))    
@@ -37,7 +34,7 @@ def auth_form():
 
 @app.route("/auth/", methods=["POST"])
 def auth_create():
-    form = LoginForm(request.form)
+    form = SignUpForm(request.form)
 
     if not form.validate():
         return render_template("auth/new.html", form = form) 
