@@ -17,6 +17,8 @@ def auth_login():
     if not user:
         return render_template("auth/loginform.html", form = form,
                                error = "No such username or password")
+    if not form.validate():
+        return render_template("auth/loginform.html", form = form) 
 
 
     login_user(user)
