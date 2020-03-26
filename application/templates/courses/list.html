@@ -23,6 +23,9 @@
       <td><form method="POST" action="{{url_for('courses_update', course_id=course.id) }}">
        <input type="submit" value="Open registrations"/>
       </form></td>
+    <td><form method="POST" action="{{url_for('courses_edit', course_id=course.id) }}">
+       <input type="submit" value="Edit course"/>
+      </form></td>
     <td><form method="POST" action="{{url_for('courses_delete', course_id=course.id) }}">
        <input type="submit" value="Delete course"/>
       </form></td>

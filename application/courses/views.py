@@ -17,8 +17,8 @@ def courses_form():
 @login_required
 def courses_update(course_id):
 
-    c = Course.query.get(course_id)
-    c.registrationsopen = True
+    course = Course.query.get(course_id)
+    course.registrationsopen = True
     db.session().commit()
     
     return redirect(url_for("courses_index"))
@@ -27,10 +27,33 @@ def courses_update(course_id):
 @login_required
 def courses_delete(course_id):
 
-    c = Course.query.get(course_id)
-    db.session.delete(c)
+    course = Course.query.get(course_id)
+    db.session.delete(course)
     db.session().commit()
 
+    return redirect(url_for("courses_index"))
+
+@app.route("/courses/edit/<course_id>", methods=["POST"])
+@login_required
+def courses_edit(course_id):
+
+    course = Course.query.get(course_id)
+
+    form = CourseForm(request.form)
+
+    if not form.validate():
+        return render_template("courses/edit.html", course = course, form = form)
+
+    course.name = form.name.data
+    course.coursecode = form.coursecode.data
+    course.language = form.language.data
+    course.level = form.level.data
+    course.spots = form.spots.data
+    course.description = form.spots.data
+    course.registrationsopen = form.registrationsopen.data
+    db.session.commit()    
+
+   
     return redirect(url_for("courses_index"))
 
 @app.route("/courses/", methods=["POST"])
@@ -41,10 +64,11 @@ def courses_create():
     if not form.validate():
         return render_template("courses/new.html", form = form)
 
-    c = Course(form.name.data, form.coursecode.data, form.language.data, \
+    course = Course(form.name.data, form.coursecode.data, form.language.data, \
         form.level.data, form.spots.data, form.description.data, form.registrationsopen.data)
+    course.registrationsopen = form.registrationsopen.data
 
-    db.session().add(c)
+    db.session().add(course)
     db.session().commit()
 
     return redirect(url_for("courses_index"))
