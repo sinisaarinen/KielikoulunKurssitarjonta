@@ -21,6 +21,9 @@ from application.courses import views
 from application.auth import models
 from application.auth import views
 
+from application.locations import models
+from application.locations import views
+
 # login
 from application.auth.models import User
 from os import urandom

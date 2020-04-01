@@ -1,0 +1,42 @@
+
+{% block body %}
+<form method="POST" action="{{ url_for('locations_create') }}">
+  <table>
+      <tr>
+        <td>
+          {{ form.cityname.label }}
+        </td>
+        <td>
+          {{ form.cityname }}
+        </td>
+        <td>
+          <ul>
+            {% for error in form.cityname.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+	 <tr>
+        <td>
+          {{ form.location.label }}
+        </td>
+        <td>
+          {{ form.location }}
+        </td>
+        <td>
+          <ul>
+            {% for error in form.location.errors %}
+	     <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+	 <tr>
+        <td colspan="2">
+   <input type="submit" value="Add a new location"/>
+  </td>
+ </tr>
+</form>
+{% endblock %}
+

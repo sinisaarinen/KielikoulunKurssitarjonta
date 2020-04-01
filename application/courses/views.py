@@ -67,6 +67,7 @@ def courses_create():
     course = Course(form.name.data, form.coursecode.data, form.language.data, \
         form.level.data, form.spots.data, form.description.data, form.registrationsopen.data)
     course.registrationsopen = form.registrationsopen.data
+    course.location = form.location_list.data
 
     db.session().add(course)
     db.session().commit()

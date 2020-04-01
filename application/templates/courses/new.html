@@ -77,6 +77,22 @@
 	  </ul>
 	</td>
       </tr>
+	<tr>
+        <td>
+          {{ form.location_list.label }}
+        </td>
+        <td>
+          {{ form.location_list }}
+        </td>
+        <td>
+	 <ul>
+            {% for error in form.location.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
+
 	 <tr>
         <td>
           {{ form.description.label }}
