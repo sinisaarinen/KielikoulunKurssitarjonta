@@ -2,7 +2,24 @@
 
 {% block body %}
   <p>
-    Hello world!
+    Welcome!
   </p>
+
+{% if count_courses is defined %}
+<p>
+  The following locations have courses:
+</p>
+
+<ul>
+  {% for response in count_courses %}
+  <li>
+    {{ response }}
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
+
 {% endblock %}
 

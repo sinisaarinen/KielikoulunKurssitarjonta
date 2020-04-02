@@ -50,6 +50,7 @@ def courses_edit(course_id):
     course.language = form.language.data
     course.level = form.level.data
     course.spots = form.spots.data
+    course.course_location = form.course_location.data.id
     course.description = form.spots.data
     course.registrationsopen = form.registrationsopen.data
 
