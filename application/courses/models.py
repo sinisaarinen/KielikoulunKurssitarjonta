@@ -32,7 +32,6 @@ class Course(Base):
         res = db.engine.execute(stmt)
 
         response = []
-
         for row in res:
             response.append({"location.cityname":row[0], "COUNT(Course.id)":row[1]})
 
