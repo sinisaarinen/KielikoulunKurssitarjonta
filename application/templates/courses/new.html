@@ -77,6 +77,21 @@
 	  </ul>
 	</td>
       </tr>
+        <tr>
+        <td>
+          {{ form.course_location.label }}
+        </td>
+        <td>
+          {{ form.course_location }}
+        </td>
+        <td>
+          <ul>
+            {% for error in form.course_location.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+      </tr>
 	 <tr>
         <td>
           {{ form.description.label }}

@@ -11,6 +11,8 @@ class Course(Base):
     description = db.Column(db.String(144), nullable=False)
     registrationsopen = db.Column(db.Boolean, nullable=False)
 
+    course_location = db.Column(db.Integer, db.ForeignKey('course_location.id'), nullable=False)
+
     def __init__(self, name, coursecode, language, level, spots, description, registrationsopen):
         self.name = name
         self.coursecode = coursecode

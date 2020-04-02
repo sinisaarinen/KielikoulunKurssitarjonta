@@ -3,6 +3,7 @@ from flask_login import login_required
 from flask import redirect, render_template, request, url_for
 from application.courses.models import Course
 from application.courses.forms import CourseForm
+from application.locations.models import Location
 
 @app.route("/courses", methods=["GET"])
 def courses_index():
@@ -51,6 +52,7 @@ def courses_edit(course_id):
     course.spots = form.spots.data
     course.description = form.spots.data
     course.registrationsopen = form.registrationsopen.data
+
     db.session.commit()    
 
    
@@ -67,7 +69,9 @@ def courses_create():
     course = Course(form.name.data, form.coursecode.data, form.language.data, \
         form.level.data, form.spots.data, form.description.data, form.registrationsopen.data)
     course.registrationsopen = form.registrationsopen.data
-
+    course.location.id = Location.query.get(id)
+    formm = CourseForm(request.POST, obj=course.location.id)
+    formm.course_location.choices = [(l.id, l.cityname) for l in Location.query.order_by('cityname')]
     db.session().add(course)
     db.session().commit()
 

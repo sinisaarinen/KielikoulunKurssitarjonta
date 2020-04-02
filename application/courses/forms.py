@@ -1,6 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, IntegerField, validators
-from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms import StringField, BooleanField, IntegerField, validators, SelectField
 
 class CourseForm(FlaskForm):
     name = StringField("Course name", [validators.Length(min=2)])
@@ -10,6 +9,7 @@ class CourseForm(FlaskForm):
     spots = IntegerField("Spots")
     description = StringField("Description", [validators.Length(min=2)])
     registrationsopen = BooleanField("Registrations open")
+    course_location = SelectField("Location", coerce=int)
  
     class Meta:
         csrf = False
