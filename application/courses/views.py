@@ -67,7 +67,7 @@ def courses_create():
         return render_template("courses/new.html", form = form)
 
     course = Course(form.name.data, form.coursecode.data, form.language.data, \
-        form.level.data, form.spots.data, form.course_location.data, form.description.data, form.registrationsopen.data)
+        form.level.data, form.spots.data, form.course_location.data.id, form.description.data, form.registrationsopen.data)
     course.registrationsopen = form.registrationsopen.data
     db.session().add(course)
     db.session().commit()

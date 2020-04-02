@@ -8,6 +8,7 @@
       <th>Language</th>
       <th>Level</th>
       <th>Spots</th>
+      <th>Location</th>
       <th>Description</th>
       <th>Registrations open</th>
     </tr>
@@ -18,6 +19,7 @@
       <td>{{ course.language }}</td>
       <td>{{ course.level }}</td>
       <td>{{ course.spots }}</td>
+      <td>{{ course.course_location }}</td>
       <td>{{ course.description }}</td>
       <td>{{ course.registrationsopen }}</td>
       <td><form method="POST" action="{{url_for('courses_update', course_id=course.id) }}">
