@@ -1,2 +1,5 @@
 __pycache__
 courses.db
+__init__.pyc
+views.pyc
+models.pyc
