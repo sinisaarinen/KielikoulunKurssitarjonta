@@ -13,7 +13,7 @@
 <ul>
   {% for response in count_courses %}
   <li>
-    {{ response }}
+    {{ response["cityname"] }} {{ response["coursecount"] }}
   </li>
   {% endfor %}
 </ul>

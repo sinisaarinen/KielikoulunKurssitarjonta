@@ -33,6 +33,6 @@ class Course(Base):
 
         response = []
         for row in res:
-            response.append({"location.cityname":row[0], "COUNT(Course.id)":row[1]})
+            response.append({"cityname":row[0], "coursecount":row[1]})
 
         return response
