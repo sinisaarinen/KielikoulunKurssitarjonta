@@ -39,6 +39,10 @@ def auth_create():
     if not form.validate():
         return render_template("auth/new.html", form = form) 
 
+    usernameExists = User.query.filter_by(username=form.username.data).first()
+    if usernameExists:
+        return render_template("auth/new.html", form = form, error = "Username already exists")
+
     u = User(form.name.data, form.username.data, form.password.data)
 
     db.session().add(u)

@@ -8,7 +8,7 @@ class CourseForm(FlaskForm):
     coursecode = StringField("Course code", [validators.Length(min=2)])
     language = StringField("Language", [validators.Length(min=2)])
     level = StringField("Level", [validators.Length(min=2)])
-    spots = IntegerField("Spots")
+    spots = IntegerField("Spots", [validators.NumberRange(min=5, max=100)])
     course_location = QuerySelectField(u'Location', query_factory=Location.get_location_list, get_label='cityname')
     description = StringField("Description", [validators.Length(min=2)])
     registrationsopen = BooleanField("Registrations open")

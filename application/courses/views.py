@@ -67,6 +67,14 @@ def courses_create():
     if not form.validate():
         return render_template("courses/new.html", form = form)
 
+    courseExists = Course.query.filter_by(name=form.name.data).first()
+    if courseExists:
+        return render_template("courses/new.html", form = form, error = "Course already exists")
+    
+    courseCodeExists = Course.query.filter_by(coursecode=form.coursecode.data).first()
+    if courseCodeExists:
+        return render_template("courses/new.html", form = form, error = "Course code already exists")
+    
     course = Course(form.name.data, form.coursecode.data, form.language.data, \
         form.level.data, form.spots.data, form.course_location.data.id, form.description.data, form.registrationsopen.data)
     course.registrationsopen = form.registrationsopen.data

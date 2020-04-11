@@ -16,6 +16,10 @@ def locations_create():
     if not form.validate():
         return render_template("locations/new.html", form = form)
 
+    locationExists = Location.query.filter_by(location=form.location.data).first()
+    if locationExists:
+        return render_template("locations/new.html", form = form, error = "Location already exists")
+
     location = Location(form.cityname.data, form.location.data)
 
     db.session().add(location)
