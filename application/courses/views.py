@@ -40,7 +40,7 @@ def courses_edit(course_id):
 
     course = Course.query.get(course_id)
 
-    form = CourseForm(request.form)
+    form = CourseForm(request.form, obj=course)
 
     if not form.validate():
         return render_template("courses/edit.html", course = course, form = form)
