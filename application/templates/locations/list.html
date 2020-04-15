@@ -10,7 +10,7 @@
     <tr>
       <td>{{ location.cityname }}</td>
       <td>{{ location.location }}</td>
-     <td><form method="POST" action="{{url_for('locations_edit', location_id=location.id) }}">>
+     <td><form method="POST" action="{{url_for('locations_edit', location_id=location.id) }}">
        <input type="submit" value="Edit location"/>
       </form></td>
     <td><form method="POST" action="{{url_for('locations_delete', location_id=location.id) }}">

@@ -30,7 +30,7 @@ def auth_logout():
 
 @app.route("/auth/new/")
 def auth_form():
-    return render_template("auth/new.html", form = LoginForm())
+    return render_template("auth/new.html", form = SignUpForm())
 
 @app.route("/auth/", methods=["POST"])
 def auth_create():
@@ -43,7 +43,7 @@ def auth_create():
     if usernameExists:
         return render_template("auth/new.html", form = form, error = "Username already exists")
 
-    u = User(form.name.data, form.username.data, form.password.data)
+    u = User(form.name.data, form.username.data, form.password.data, form.role.data)
 
     db.session().add(u)
     db.session().commit()

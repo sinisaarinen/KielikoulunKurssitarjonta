@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% from "styles.html" import render_field, submit_button, render_radiofield %}
+
+{% block body %}
+{{ error }}
+<form method="POST" action="{{ url_for('courses_register', course_id=course.id) }}">
+      <dl>
+          {{ render_field(form.name) }}
+          {{ render_field(form.phonenumber) }}
+          {{ render_field(form.email) }}
+      </dl>  
+   {{ submit_button("Save information") }}
+</form>
+{% endblock %}
+
+

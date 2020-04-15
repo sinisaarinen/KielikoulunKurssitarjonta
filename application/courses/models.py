@@ -10,7 +10,7 @@ class Course(Base):
     name = db.Column(db.String(144), nullable=False)
     coursecode = db.Column(db.String(144), nullable=False)
     language = db.Column(db.String(144), nullable=False)
-    level = db.Column(db.String(144), nullable=False)
+    level = db.Column(db.String, nullable=False)
     spots = db.Column(db.Integer, nullable=False)
     course_location = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
     description = db.Column(db.String(144), nullable=False)
@@ -36,3 +36,14 @@ class Course(Base):
             response.append({"cityname":row[0], "coursecount":row[1]})
 
         return response
+
+class Registration(Base):
+
+    name = db.Column(db.String(144), nullable=False)
+    phonenumber = db.Column(db.Integer, nullable=False)
+    email = db.Column(db.String(144), nullable=False)
+
+    def __init__(self, name, phonenumber, email):
+        self.name = name
+        self.phonenumber = phonenumber
+        self.email = email

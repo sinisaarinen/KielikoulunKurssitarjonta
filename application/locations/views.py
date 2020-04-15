@@ -1,15 +1,20 @@
-from application import app, db
-from flask_login import login_required
+from application import app, db, login_required
+from flask_login import current_user
 from flask import redirect, render_template, request, url_for
 from application.locations.models import Location
 from application.locations.forms import LocationForm
 
+@app.route("/locations", methods=["GET"])
+def locations_index():
+    return render_template("locations/list.html", locations = Location.query.all())
+
 @app.route("/locations/new/")
-@login_required
+@login_required(["ADMIN"])
 def locations_form():
     return render_template("locations/new.html", form = LocationForm())
 
 @app.route("/locations/", methods=["POST"])
+@login_required(["ADMIN"])
 def locations_create():
     form = LocationForm(request.form)
 
@@ -27,12 +32,8 @@ def locations_create():
 
     return redirect(url_for("locations_index"))
 
-@app.route("/locations", methods=["GET"])
-def locations_index():
-    return render_template("locations/list.html", locations = Location.query.all())
-
 @app.route("/locations/delete/<location_id>", methods=["POST"])
-@login_required
+@login_required(["ADMIN"])
 def locations_delete(location_id):
 
     location = Location.query.get(location_id)
@@ -42,7 +43,7 @@ def locations_delete(location_id):
     return redirect(url_for("locations_index"))
 
 @app.route("/locations/edit/<location_id>", methods=["POST"])
-@login_required
+@login_required(["ADMIN"])
 def locations_edit(location_id):
 
     location = Location.query.get(location_id)
