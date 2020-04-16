@@ -21,7 +21,7 @@ Alustava lista toiminnoista:
 ## Demosovellus
 
 Demosovellus toimii [Herokussa:](https://tsoha-harjoitus.herokuapp.com/)
- - kirjaudu sisään käyttäjätunnuksella "hello" ja salasanalla "world" (admin) tai käyttäjätunnuksella "client" ja salasanalla "client" (asiakas)
+ - kirjaudu sisään käyttäjätunnuksella "admin1" ja salasanalla "admin" (admin) tai käyttäjätunnuksella "client" ja salasanalla "client" (asiakas)
 
 ## Dokumentaatio
 
