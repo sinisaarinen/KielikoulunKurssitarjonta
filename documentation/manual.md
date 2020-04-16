@@ -12,3 +12,32 @@ Kun olet rekisteröitynyt sovellukseen, pääset sisäänkirjautumaan oikealta y
 
 Uloskirjautuminen onnistuu vastaavasti oikean yläkulman `Logout`-linkkiä painamalla.
 
+## Kurssien ja kurssipaikkakuntien tarkastelu
+
+Kursseja pääsee tarkastelemaan yläpalkista löytyvän `List courses`-linkin kautta ja kurssipaikkakuntia vastaavasti `List locations`-linkistä. Kurssin tiedoissa mainitaan kurssin nimi, kurssikoodi, kieli, taso, paikkamäärä, sijainti ja kurssikuvaus. Lisäksi voi tarkastella, missä kursseissa ilmoittautuminen on avoinna. Kurssipaikkakuntien tiedoissa taas mainitaan sekä paikkakunta että tarkempi sijainti.
+
+## Kurssien hakeminen
+
+Kursseja voi hakea `List courses`-linkin kautta avautuvassa näkymässä. Kurssien hakeminen onnistuu kurssin nimen, kurssikoodin, kielen tai tason (beginner, intermediate tai advanced) perusteella. Valitse valikosta haluamasi hakukriteeri, kirjoita hakukenttään hakusana ja paina `Search`-nappia. Sivulle listataan kaikki hakuasi vastaavat kurssit.
+
+## Kurssille ilmoittautuminen
+
+Kurssille voi ilmoittautua client-rooliin rekisteröitynyt ja kirjautunut käyttäjä. Ilmoittautumaan pääsee klikkaamalla `List courses`-näkymästä haluamansa kurssin kohdalla `Register for the course`-nappia. Kurssille rekisteröitymiseen tarvitaan koko nimi, puhelinnumero ja toimiva sähköpostiosoite.
+
+## Admin-ominaisuudet
+
+Admin-tunnuksilla kirjautuneena käytössä on joukko tavalliselle käyttäjälle näkymättömiä toimintoja.
+
+### Uuden kurssin tai sijainnin lisääminen
+
+Uuden kurssin pääsee lisäämään yläpalkista löytyvästä `Add a new course`-linkistä. Täytä lomakkeeseen kurssin tiedot ja paina `Add a new course`. Kurssisi löytyy nyt `List courses`-linkistä avautuvasta listasta.
+
+Uuden sijainnin voi lisätä yläpalkin `Add a location`-linkin kautta. Täytä lomakkeeseen kurssipaikkakunnan nimi ja tarkempi sijainti tai osoite ja paina `Add a new location`. Lisäämäsi sijainti löytyy nyt `List locations`-linkkiä painamalla avautuvasta näkymästä.
+
+### Kurssin tai sijainnin poistaminen
+
+Lisätyn kurssin voi poistaa `List courses`-näkymästä klikkaamalla kurssin oikealta puolelta löytyvää `Delete`-nappia. Lisätyn sijainnin voi puolestaan poistaa `List locations`- näkymästä `Delete location`-nappia painamalla.
+
+### Kurssin tai sijainnin muokkaaminen
+
+Kursseja pääsee muokkaamaan painamalla `List courses`-näkymässä `Edit`-nappia. Sijainteja taas pääsee muokkaamaan `List locations`-näkymässä `Edit location`-napista.
