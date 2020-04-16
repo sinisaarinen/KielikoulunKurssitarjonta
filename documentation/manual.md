@@ -8,7 +8,7 @@ Sovellukseen pääsee rekisteröitymään vasemmalta yläpalkista löytyvän `Si
 
 ## Sisään- ja uloskirjautuminen
 
-Kun olet rekisteröitynyt sovellukseen, pääset sisäänkirjautumaan oikealta yläpalkista löytyvän `Log in` -linkin kautta. Syötä avautuvassa näkymässä käyttäjätunnuksesi ja salasanasi ja paina `Login`-nappia. Jos haluat tarkastella sovellusta admin-tilassa, voit kirjautua sisään käyttäjätunnuksella "hello" ja salasanalla "world".
+Kun olet rekisteröitynyt sovellukseen, pääset sisäänkirjautumaan oikealta yläpalkista löytyvän `Log in` -linkin kautta. Syötä avautuvassa näkymässä käyttäjätunnuksesi ja salasanasi ja paina `Login`-nappia. Jos haluat tarkastella sovellusta admin-tilassa, voit kirjautua sisään käyttäjätunnuksella "admin1" ja salasanalla "admin".
 
 Uloskirjautuminen onnistuu vastaavasti oikean yläkulman `Logout`-linkkiä painamalla.
 
