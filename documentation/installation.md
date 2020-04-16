@@ -6,13 +6,13 @@ Aja ensin seuraava komento haluamassasi hakemistossa projektin lähdekoodin lata
 ```
 git clone https://github.com/sinisaarinen/KielikoulunKurssitarjonta.git
 ```
-Sovelluksen lähdekoodia voi nyt tarkastella hakemistossa KielikoulunKurssitarjonta.
+Sovelluksen lähdekoodia voi nyt tarkastella hakemistossa `KielikoulunKurssitarjonta`.
 
 Seuraavaksi luodaan virtuaaliympäristö. Tämä onnistuu ajamalla projektin juuressa seuraavan komennon:
 ```
 python3 -m venv venv
 ```
-Virtuaaliympäristö löytyy nyt hakemistosta venv ja se voidaan ottaa käyttöön suorittamalla:
+Virtuaaliympäristö löytyy nyt hakemistosta `venv` ja se voidaan ottaa käyttöön suorittamalla:
 ```
 source venv/bin/activate
 ```
@@ -26,4 +26,4 @@ Tämän jälkeen voit käynnistää sovelluksen ajamalla hakemiston juuresta seu
 ```
 python run.py
 ```
-Sovelluksen voi avata nyt selaimessa. Jos sovellus on käynnissä portissa 5000, sovellus avautuu selaimella osoitteessa localhost:5000.
+Sovelluksen voi avata nyt selaimessa. Jos sovellus on käynnissä portissa 5000, sovellus avautuu selaimella osoitteessa `localhost:5000`.
