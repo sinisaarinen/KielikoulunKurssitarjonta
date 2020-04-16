@@ -11,7 +11,8 @@
 1.2 Kurssien listaus
 
 - Kaikki käyttäjät voivat hakea ja tarkastella kursseja
-  - paikkakunnan perusteella
+  - kurssin nimen perusteella
+  - kurssikoodin perusteella
   - opetuskielen perusteella
   - tason perusteella
   
@@ -23,12 +24,12 @@
 
 2.1 Järjestelmään rekisteröityminen ja kirjautuminen
 
-- Kursseja voi lisätä, muokata ja poistaa ainoastaan admin-oikeudellinen käyttäjä
+- Kursseja ja kurssipaikkakuntia voi lisätä, muokata ja poistaa ainoastaan admin-oikeudellinen käyttäjä
 
-2.2 Kurssien lisääminen
+2.2 Kurssien ja sijaintien lisääminen
 
-2.3 Kurssien muokkaaminen
+2.3 Kurssien ja sijaintien muokkaaminen
 
-- Admin voi muokata kurssien tietoja ja avata kurssille ilmoittautumisen
+- Admin voi muokata kurssien ja sijaintien tietoja ja avata kurssille ilmoittautumisen
 
-2.4 Kurssien poistaminen
+2.4 Kurssien ja sijaintien poistaminen
