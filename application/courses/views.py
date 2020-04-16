@@ -37,12 +37,12 @@ def search_results(search):
         return render_template("courses/list.html", courses = results, form=search)
 
 @app.route("/courses/new/")
-@login_required(["ORGANIZER", "ADMIN"])
+@login_required(["ADMIN"])
 def courses_form():
     return render_template("courses/new.html", form = CourseForm())
 
 @app.route("/courses/edit/<course_id>")
-@login_required(["ORGANIZER", "ADMIN"])
+@login_required(["ADMIN"])
 def courses_edit_form(course_id):
     course = Course.query.get(course_id)
     return render_template("courses/edit.html", course_id=course_id, form=CourseForm(obj=course))
@@ -58,7 +58,7 @@ def courses_update(course_id):
     return redirect(url_for("courses_index"))
 
 @app.route("/courses/delete/<course_id>", methods=["POST"])
-@login_required(["ORGANIZER", "ADMIN"])
+@login_required(["ADMIN"])
 def courses_delete(course_id):
 
     course = Course.query.get(course_id)
@@ -68,7 +68,7 @@ def courses_delete(course_id):
     return redirect(url_for("courses_index"))
 
 @app.route("/courses/edit/<course_id>", methods=["POST"])
-@login_required(["ORGANIZER", "ADMIN"])
+@login_required(["ADMIN"])
 def courses_edit(course_id):
 
     course = Course.query.get(course_id)
@@ -93,7 +93,7 @@ def courses_edit(course_id):
     return redirect(url_for("courses_index"))
 
 @app.route("/courses/", methods=["POST"])
-@login_required(["ORGANIZER", "ADMIN"])
+@login_required(["ADMIN"])
 def courses_create():
     form = CourseForm(request.form)
     

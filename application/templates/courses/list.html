@@ -49,10 +49,10 @@
        {{ submit_button("Open registrations") }}
       </form></td>
     <td><form method="POST" action="{{url_for('courses_edit', course_id=course.id) }}">
-       {{ submit_button("Edit course") }}
+       {{ submit_button("Edit") }}
       </form></td>
     <td><form method="POST" action="{{url_for('courses_delete', course_id=course.id) }}">
-       {{ submit_button("Delete course") }}
+       {{ submit_button("Delete") }}
      </form></td>
      {% endif %}
      {% if current_user.role == "CLIENT" %}
