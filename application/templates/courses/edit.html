@@ -2,7 +2,7 @@
 {% from "styles.html" import render_field, submit_button, render_radiofield %}
   
 {% block body %}
-<form method="POST" action="{{ url_for('courses_edit', course_id=course_id) }}">
+<form method="POST" action="{{ url_for('courses_edit', course_id=course.id) }}">
       <dl>
 	  {{ render_field(form.name) }}
           {{ render_field(form.coursecode) }}

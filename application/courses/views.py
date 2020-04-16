@@ -41,12 +41,6 @@ def search_results(search):
 def courses_form():
     return render_template("courses/new.html", form = CourseForm())
 
-@app.route("/courses/edit/<course_id>")
-@login_required(["ADMIN"])
-def courses_edit_form(course_id):
-    course = Course.query.get(course_id)
-    return render_template("courses/edit.html", course_id=course_id, form=CourseForm(obj=course))
-
 @app.route("/courses/<course_id>", methods=["POST"])
 @login_required(["ORGANIZER", "ADMIN"])
 def courses_update(course_id):
@@ -84,12 +78,11 @@ def courses_edit(course_id):
     course.level = form.level.data
     course.spots = form.spots.data
     course.course_location = form.course_location.data.id
-    course.description = form.spots.data
+    course.description = form.description.data
     course.registrationsopen = form.registrationsopen.data
 
-    db.session.commit()    
+    db.session().commit()
 
-   
     return redirect(url_for("courses_index"))
 
 @app.route("/courses/", methods=["POST"])

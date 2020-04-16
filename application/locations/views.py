@@ -55,6 +55,6 @@ def locations_edit(location_id):
 
     location.cityname = form.cityname.data
     location.location = form.location.data
-    db.session.commit()
+    db.session().commit()
 
     return redirect(url_for("locations_index"))
