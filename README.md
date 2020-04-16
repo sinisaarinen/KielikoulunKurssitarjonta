@@ -1,5 +1,7 @@
 # Kielikoulun kurssitarjonta
 
+## Kuvaus
+
 Kielikoulun kurssitarjonta on Helsingin yliopiston kevään 2020 Tietokantasovellus-kurssin harjoitustyö.
 
 Kielikoulun sivuilla on mahdollista ilmoittautua eri kielten kursseille sekä hakea ja tarkastella tarjolla olevia kursseja eri hakukriteereiden perusteella.
@@ -16,9 +18,13 @@ Alustava lista toiminnoista:
 - tarkempien kurssikuvausten tarkastelu
 - kurssin peruutus
 
-Sovellus Herokussa: https://tsoha-harjoitus.herokuapp.com/
- - kirjaudu sisään käyttäjätunnuksella "hello" ja salasanalla "world"
+## Demosovellus
 
-Tietokantakaavio: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/tietokantakaavio_paivitetty.png
+Demosovellus toimii [Herokussa:](https://tsoha-harjoitus.herokuapp.com/)
+ - kirjaudu sisään käyttäjätunnuksella "hello" ja salasanalla "world" (admin) tai käyttäjätunnuksella "client" ja salasanalla "client" (asiakas)
 
-Käyttötapauksista: https://github.com/sinisaarinen/KielikoulunKurssitarjonta/blob/master/documentation/usecases.md
+## Dokumentaatio
+
+[Tietokantakaavio](tietokantakaavio_paivitetty.png)
+
+[Käyttötapaukset](documentation/usecases.md)
