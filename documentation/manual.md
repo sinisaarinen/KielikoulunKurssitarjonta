@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Kun olet suorittanut sovelluksen asennuksen koneellesi dokumentaatiosta löytyvän [asennusohjeen](documentation/installation.md) mukaisesti tai olet avannut sovelluksen [Herokussa](https://tsoha-harjoitus.herokuapp.com/), voit siirtyä käyttämään sovellusta tämän dokumentin ohjeiden mukaisesti.
+Kun olet suorittanut sovelluksen asennuksen koneellesi dokumentaatiosta löytyvän [asennusohjeen](installation.md) mukaisesti tai olet avannut sovelluksen [Herokussa](https://tsoha-harjoitus.herokuapp.com/), voit siirtyä käyttämään sovellusta tämän dokumentin ohjeiden mukaisesti.
 
 ## Rekisteröityminen
 
