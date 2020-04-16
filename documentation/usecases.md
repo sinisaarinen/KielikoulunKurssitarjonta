@@ -2,7 +2,7 @@
 
 ## Käyttötapaukset rooleittain
 
-### 1. Opiskelija
+### 1. Asiakas
 
 1.1 Järjestelmään rekisteröityminen ja kirjautuminen
 
