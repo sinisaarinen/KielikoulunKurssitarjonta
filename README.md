@@ -28,3 +28,7 @@ Demosovellus toimii [Herokussa:](https://tsoha-harjoitus.herokuapp.com/)
 [Tietokantakaavio](tietokantakaavio_paivitetty.png)
 
 [Käyttötapaukset](documentation/usecases.md)
+
+[Asennusohje](documentation/installation.md)
+
+[Käyttöohje](documentation/manual.md)
