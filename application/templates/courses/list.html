@@ -1,9 +1,10 @@
 {% extends "layout.html" %}
+{% from "styles.html" import render_field, submit_button, render_radiofield %}
 
 {% block body %}
 
 <div class="text-center">
-    <h1 class="h1 mb-1 font-weight-normal">Search for a course</h1>
+    <h1 class="h1 mb-1 font-weight-normal">Available courses</h1>
     <br>
     <form class="form-signin" method=POST action="{{ url_for('courses_index') }}">
       <dl>
@@ -13,7 +14,7 @@
         {{ form.search }}
         </p>
       </dl>
-      <input type="submit" class="btn btn-outline-info" value="Search"/>
+      {{ submit_button("Search") }}
     </form>
     <br>
   </div>
@@ -43,18 +44,22 @@
       <td>{{ course.course_location }}</td>
       <td>{{ course.description }}</td>
       <td>{{ course.registrationsopen }}</td>
+      {% if current_user.role == "ADMIN" %}
       <td><form method="POST" action="{{url_for('courses_update', course_id=course.id) }}">
-       <input type="submit" value="Open registrations"/>
+       {{ submit_button("Open registrations") }}
       </form></td>
     <td><form method="POST" action="{{url_for('courses_edit', course_id=course.id) }}">
-       <input type="submit" value="Edit course"/>
+       {{ submit_button("Edit course") }}
       </form></td>
     <td><form method="POST" action="{{url_for('courses_delete', course_id=course.id) }}">
-       <input type="submit" value="Delete course"/>
+       {{ submit_button("Delete course") }}
      </form></td>
+     {% endif %}
+     {% if current_user.role == "CLIENT" %}
     <td><form method="POST" action="{{url_for('courses_register', course_id=course.id) }}">
-       <input type="submit" value="Register for the course"/>
+       {{ submit_button("Register for the course") }}
       </form></td>
+     {% endif %}
       </tr>
      </tbody>
     {% endfor %}

@@ -1,22 +1,32 @@
 {% extends "layout.html" %}
+{% from "styles.html" import render_field, submit_button, render_radiofield %}
 
 {% block body %}
-  <table>
+  <div class="text-center">
+    <h1 class="h1 mb-1 font-weight-normal">Available locations</h1>
+    <br>
+   <table class="table">
+   <thead class="thead-light">
     <tr>
       <th>City</th>
       <th>Location</th>
     </tr>
+   </thead>
     {% for location in locations %}
+   <tbody>
     <tr>
       <td>{{ location.cityname }}</td>
       <td>{{ location.location }}</td>
+     {% if current_user.role == "ADMIN" %}
      <td><form method="POST" action="{{url_for('locations_edit', location_id=location.id) }}">
-       <input type="submit" value="Edit location"/>
+       {{ submit_button("Edit location") }}
       </form></td>
     <td><form method="POST" action="{{url_for('locations_delete', location_id=location.id) }}">
-       <input type="submit" value="Delete location"/>
+       {{ submit_button("Delete location") }}
       </form></td>
+     {% endif %}
       </tr>
+     </tbody>
     {% endfor %}
   </table>
 {% endblock %}
