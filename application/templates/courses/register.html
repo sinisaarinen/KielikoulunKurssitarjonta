@@ -8,6 +8,12 @@
           {{ render_field(form.name) }}
           {{ render_field(form.phonenumber) }}
           {{ render_field(form.email) }}
+          {{ form.course_name.label }}
+          <br>
+          {{ form.course_name }}
+           <br>
+           <br>
+
       </dl>  
    {{ submit_button("Save information") }}
 </form>

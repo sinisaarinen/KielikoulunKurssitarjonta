@@ -128,14 +128,14 @@ def courses_register(course_id):
     if not form.validate():
         return render_template("courses/register.html", course = course, form = form)
 
-    course = Registration(form.name.data, form.phonenumber.data, form.email.data)
+    course = Registration(form.name.data, form.phonenumber.data, form.email.data, form.course_name.data.id)
     course.account_id = current_user.id
     db.session().add(course)
     db.session().commit()
 
-    return redirect(url_for("courses_index"))
+    return redirect(url_for("registrations_index"))
 
 @app.route("/registrations/", methods=["GET"])
 def registrations_index():
-    return render_template("locations/list.html", registrations = Registration.query.all())
+    return render_template("courses/registrations_list.html", registrations = Registration.query.all(), find_course=Registration.find_course_name(current_user.id))
 
