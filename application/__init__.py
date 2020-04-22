@@ -71,6 +71,9 @@ from application.auth import views
 from application.locations import models
 from application.locations import views
 
+from application.registrations import models
+from application.registrations import views
+
 # login functionality, part 2
 from application.auth.models import User
 
