@@ -48,13 +48,26 @@ def locations_edit(location_id):
 
     location = Location.query.get(location_id)
 
-    form = LocationForm(request.form)
+    form = LocationForm(request.form, obj=location)
 
-    if not form.validate():
-        return render_template("locations/edit.html", location = location, form = form)
+    return render_template("locations/edit.html", location = location, form = form)
 
     location.cityname = form.cityname.data
     location.location = form.location.data
     db.session().commit()
 
-    return redirect(url_for("locations_index"))
+    return redirect(url_for("locations_update"))
+
+@app.route("/locations/update/<location_id>", methods=["POST"])
+@login_required(["ADMIN"])
+def locations_update(location_id):
+
+     if not form.validate():
+        return render_template("locations/edit.html", location = location, form = form)
+
+     location.cityname = form.cityname.data
+     location.location = form.location.data
+     db.session().commit()
+
+     return redirect(url_for("locations_index"))
+
