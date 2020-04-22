@@ -12,7 +12,7 @@ Alustava lista toiminnoista:
 - uuden kurssin lisäys, muokkaus ja poisto
 - uuden kurssipaikkakunnan lisäys, muokkaus ja poisto
 - kurssille ilmoittautuminen
-- ilmoittautumisten muokkaus, peruutus ja tarkastelu (toteuttamatta)
+- ilmoittautumisten muokkaus, peruutus ja tarkastelu (muokkaus ja peruutus toteuttamatta)
 - kurssien hakeminen nimen, kurssikoodin, kielen ja tason perusteella
 - kurssien määrän listaus paikkakunnittain (näkyy etusivulla)
 
