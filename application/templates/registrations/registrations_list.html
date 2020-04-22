@@ -14,16 +14,13 @@
       <th>Email for contact</th>
     </tr>
    </thead>
-   {% for registration in registrations %}
    <tbody>
     <tr>
 {% for response in find_course %}
       <td>{{ response["course_name"] }}</td>
-{% endfor %}
-      <td>{{ registration.name }}</td>
-      <td>{{ registration.phonenumber }}</td>
-      <td>{{ registration.email }}</td>
-      </tr>
+      <td>{{ response["name"] }}</td>
+      <td>{{ response["phonenumber"] }}</td>
+      <td>{{ response["email"] }}</td>
 {% endfor %}
      </tbody>
   </table>
