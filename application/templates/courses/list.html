@@ -32,7 +32,6 @@
       <th>Registrations open</th>
     </tr>
    </thead>
-
     {% for course in courses %}
    <tbody>
     <tr>
@@ -41,7 +40,9 @@
       <td>{{ course.language }}</td>
       <td>{{ course.level }}</td>
       <td>{{ course.spots }}</td>
-      <td>{{ course.course_location }}</td>
+{% for response in find_location %}
+      <td>{{ response["cityname"] }}</td>
+{% endfor %}
       <td>{{ course.description }}</td>
       <td>{{ course.registrationsopen }}</td>
       {% if current_user.role == "ADMIN" %}

@@ -37,6 +37,17 @@ class Course(Base):
 
         return response
 
+    @staticmethod
+    def find_location_name():
+        stmt = text("SELECT location.cityname FROM Course JOIN location ON Course.course_location=location.id")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"cityname":row[0]})
+
+        return response
+
 class Registration(Base):
 
     name = db.Column(db.String(144), nullable=False)

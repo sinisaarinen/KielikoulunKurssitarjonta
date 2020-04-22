@@ -62,12 +62,16 @@ def locations_edit(location_id):
 @login_required(["ADMIN"])
 def locations_update(location_id):
 
-     if not form.validate():
+    location = Location.query.get(location_id)
+
+    form = LocationForm(request.form, obj=location)
+
+    if not form.validate():
         return render_template("locations/edit.html", location = location, form = form)
 
-     location.cityname = form.cityname.data
-     location.location = form.location.data
-     db.session().commit()
+    location.cityname = form.cityname.data
+    location.location = form.location.data
+    db.session().commit()
 
-     return redirect(url_for("locations_index"))
+    return redirect(url_for("locations_index"))
 

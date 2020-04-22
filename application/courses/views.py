@@ -10,7 +10,7 @@ def courses_index():
     search = CourseSearchForm(request.form)
     if request.method == 'POST':
         return search_results(search)
-    return render_template("courses/list.html", courses = Course.query.all(), form=search)
+    return render_template("courses/list.html", courses = Course.query.all(), form=search, find_location=Course.find_location_name())
 
 @app.route("/courses/results")
 def search_results(search):
@@ -34,7 +34,7 @@ def search_results(search):
         flash('No results')
         return redirect(url_for("courses_index"))
     else:
-        return render_template("courses/list.html", courses = results, form=search)
+        return render_template("courses/list.html", courses = results, form=search, find_location=Course.find_location_name())
 
 @app.route("/courses/new/")
 @login_required(["ADMIN"])
