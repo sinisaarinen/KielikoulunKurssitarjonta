@@ -8,7 +8,7 @@ class Location(Base):
     cityname = db.Column(db.String(144), nullable=False)
     location = db.Column(db.String(144), nullable=False)
 
-    courses = db.relationship("Course", backref="location", lazy=True)
+    courses = db.relationship("Course", backref="location", lazy=True, cascade="all,delete")
 
     def __init__(self, cityname, location):
         self.cityname = cityname
