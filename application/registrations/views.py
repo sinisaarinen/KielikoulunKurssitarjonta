@@ -7,15 +7,15 @@ from application.locations.models import Location
 from application.courses.models import Course
 from application.courses.forms import CourseForm
 
-@app.route("/courses/register/<course_id>")
+@app.route("/registrations/register/<course_id>")
 @login_required(["CLIENT"])
 def courses_register_form(course_id):
 
     course = Course.query.get(course_id)
 
-    return render_template("courses/register.html", course_id=course_id, form=RegistrationForm(obj=course))
+    return render_template("registrations/register.html", course_id=course_id, form=RegistrationForm(obj=course))
 
-@app.route("/courses/register/<course_id>", methods=["POST"])
+@app.route("/registrations/register/<course_id>", methods=["POST"])
 @login_required(["CLIENT"])
 def courses_register(course_id):
 
