@@ -7,6 +7,11 @@ from application.locations.models import Location
 from application.courses.models import Course
 from application.courses.forms import CourseForm
 
+@app.route("/registrations/all", methods=["GET"])
+@login_required(["CLIENT"])
+def registrations_index():
+    return render_template("registrations/registrations_list.html", registrations = Registration.query.all(), find_course=Registration.find_course_name(current_user.id))
+
 @app.route("/registrations/register/<course_id>")
 @login_required(["CLIENT"])
 def courses_register_form(course_id):
@@ -32,11 +37,6 @@ def courses_register(course_id):
     db.session().commit()
 
     return redirect(url_for("registrations_index"))
-
-@app.route("/registrations/", methods=["GET"])
-@login_required(["CLIENT"])
-def registrations_index():
-    return render_template("registrations/registrations_list.html", registrations = Registration.query.all(), find_course=Registration.find_course_name(current_user.id))
 
 @app.route("/registrations_all/", methods=['GET', 'POST'])
 @login_required(["ADMIN"])
