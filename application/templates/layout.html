@@ -23,6 +23,11 @@
               <a class="nav-link" href="{{ url_for('registrations_index') }} ">My registrations</a>
             </li>
           {% endif %}
+         {% if current_user.role == "ADMIN" %}
+          <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('registrations_all') }} ">All registrations</a>
+            </li>
+          {% endif %}
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('courses_index') }} ">List courses</a>
             </li>
