@@ -47,7 +47,7 @@ def registrations_all():
     if request.method == 'POST':
         return registration_search_results(search)
 
-    return render_template("registrations/registrations_list_all.html", registrations = Registration.query.all(), form=search)
+    return render_template("registrations/registrations_list_all.html", registrations = Registration.query.all(), form=search, find_coursename=Registration.find_coursename())
 
 @app.route("/registrations_all/view/", methods=['GET', 'POST'])
 @login_required(["ADMIN"])
@@ -57,10 +57,7 @@ def registration_search_results(search):
     search_string = search.data['search']
 
     if search_string:
-        if search.data['select'] == 'Course name':
-            query = db.session().query(Course).filter(Course.name.contains(search_string))
-            results = query.all()
-        elif search.data['select'] == 'Client name':
+        if search.data['select'] == 'Client name':
             query = db.session().query(Registration).filter(Registration.name.contains(search_string))
             results = query.all()
         elif search.data['select'] == 'Phone number':
@@ -73,4 +70,4 @@ def registration_search_results(search):
         flash('No results')
         return redirect(url_for("registrations_all"))
     else:
-        return render_template("registrations/registrations_list_all.html", registrations = Registration.query.all(), form=search)
+        return render_template("registrations/registrations_list_all.html", registrations = results, form=search, find_coursename=Registration.find_coursename())

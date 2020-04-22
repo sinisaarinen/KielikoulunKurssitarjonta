@@ -32,4 +32,14 @@ class Registration(Base):
 
         return response
 
+    @staticmethod
+    def find_coursename():
+        stmt = text("SELECT Course.name FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"coursename":row[0]})
+
+        return response
 

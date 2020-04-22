@@ -15,7 +15,7 @@ class RegistrationForm(FlaskForm):
         csrf = False
 
 class RegistrationSearchForm(FlaskForm):
-    choices = [("Course name", "Course name"), ("Client name", "Client name"),
+    choices = [("Client name", "Client name"),
                ("Phone number", "Email address"), ("Email address", "Email address"),]
     select = SelectField("Search for a registration:", choices=choices)
     search = StringField('')
