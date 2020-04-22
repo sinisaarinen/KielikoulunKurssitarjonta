@@ -32,8 +32,6 @@
 
 2.1 Järjestelmään rekisteröityminen ja kirjautuminen
 
-- Kursseja ja kurssipaikkakuntia voi lisätä, muokata ja poistaa ainoastaan admin-oikeudellinen käyttäjä
-
 2.2 Kurssien ja sijaintien lisääminen
 
 2.3 Kurssien ja sijaintien muokkaaminen
