@@ -29,7 +29,7 @@ def courses_register(course_id):
     form = RegistrationForm(request.form)
 
     if not form.validate():
-        return render_template("courses/register.html", course = course, form = form)
+        return render_template("registrations/register.html", course = course, form = form)
 
     course = Registration(form.name.data, form.phonenumber.data, form.email.data, form.course_name.data.id)
     course.account_id = current_user.id
