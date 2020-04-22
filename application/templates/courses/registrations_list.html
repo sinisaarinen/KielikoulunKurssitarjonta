@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% from "styles.html" import render_field, submit_button, render_radiofield %}
+
+{% block body %}
+  <div class="text-center">
+    <h1 class="h1 mb-1 font-weight-normal">Your registrations</h1>
+    <br>
+   <table class="table">
+   <thead class="thead-light">
+    <tr>
+      <th>Course name</th>
+      <th>Your name</th>
+      <th>Phone number for contact</th>
+      <th>Email for contact</th>
+    </tr>
+   </thead>
+    {% for registration in registrations %}
+   <tbody>
+    <tr>
+      <td>{{ registration.course_id }}</td>
+      <td>{{ registration.name }}</td>
+      <td>{{ registration.phonenumber }}</td>
+      <td>{{ registration.email }}</td>
+      </tr>
+     </tbody>
+    {% endfor %}
+  </table>
+{% endblock %}
+

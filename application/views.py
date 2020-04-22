@@ -1,6 +1,6 @@
 from flask import render_template
 from application import app
-from application.courses.models import Course
+from application.courses.models import Course, Registration
 
 @app.route("/")
 def index():

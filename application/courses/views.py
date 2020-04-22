@@ -129,7 +129,13 @@ def courses_register(course_id):
         return render_template("courses/register.html", course = course, form = form)
 
     course = Registration(form.name.data, form.phonenumber.data, form.email.data)
+    course.account_id = current_user.id
     db.session().add(course)
     db.session().commit()
 
     return redirect(url_for("courses_index"))
+
+@app.route("/registrations/", methods=["GET"])
+def registrations_index():
+    return render_template("locations/list.html", registrations = Registration.query.all())
+

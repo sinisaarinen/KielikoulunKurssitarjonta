@@ -16,6 +16,8 @@ class Course(Base):
     description = db.Column(db.String(144), nullable=False)
     registrationsopen = db.Column(db.Boolean, nullable=False)
 
+    registrations = db.relationship("Registration", backref="Course", lazy=True, cascade="all,delete")
+
     def __init__(self, name, coursecode, language, level, spots, course_location, description, registrationsopen):
         self.name = name
         self.coursecode = coursecode
@@ -54,7 +56,23 @@ class Registration(Base):
     phonenumber = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(144), nullable=False)
 
+    course_id = db.Column(db.Integer, db.ForeignKey('Course.id', ondelete='CASCADE'), nullable=False)
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
+                           nullable=False)
+
     def __init__(self, name, phonenumber, email):
         self.name = name
         self.phonenumber = phonenumber
         self.email = email
+
+    @staticmethod
+    def find_course_name():
+        stmt = text("SELECT Course.name FROM Registration JOIN Course ON Registration.course_id=Course.id")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"name":row[0]})
+
+        return response
+
