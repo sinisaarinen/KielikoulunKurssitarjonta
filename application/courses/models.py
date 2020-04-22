@@ -12,7 +12,7 @@ class Course(Base):
     language = db.Column(db.String(144), nullable=False)
     level = db.Column(db.String, nullable=False)
     spots = db.Column(db.Integer, nullable=False)
-    course_location = db.Column(db.Integer, db.ForeignKey('location.id'), nullable=False)
+    course_location = db.Column(db.Integer, db.ForeignKey('location.id', ondelete='CASCADE'), nullable=False)
     description = db.Column(db.String(144), nullable=False)
     registrationsopen = db.Column(db.Boolean, nullable=False)
 
