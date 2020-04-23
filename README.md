@@ -12,8 +12,11 @@ Alustava lista toiminnoista:
 - uuden kurssin lisäys, muokkaus ja poisto
 - uuden kurssipaikkakunnan lisäys, muokkaus ja poisto
 - kurssille ilmoittautuminen
-- ilmoittautumisten muokkaus, peruutus ja tarkastelu (muokkaus ja peruutus toteuttamatta)
+- ilmoittautumisten muokkaus, peruutus ja tarkastelu (muokkaus ja peruutus eivät toimi vielä)
 - kurssien hakeminen nimen, kurssikoodin, kielen ja tason perusteella
+- yhteenvetojen tarkastelu kursseista (näkyvissä adminille)
+- kaikkien ilmoittautumisten tarkastelu (adminille)
+- ilmoittautumisten etsiminen asiakkaan nimen, puhelinnumeron ja sähköpostiosoitteen perusteella (adminille)
 - kurssien määrän listaus paikkakunnittain (näkyy etusivulla)
 
 ## Demosovellus
@@ -30,3 +33,5 @@ Demosovellus toimii [Herokussa:](https://tsoha-harjoitus.herokuapp.com/)
 - [Asennusohje](documentation/installation.md)
 
 - [Käyttöohje](documentation/manual.md)
+
+- [Jatkokehitysideat](documentation/improvementideas.md)
