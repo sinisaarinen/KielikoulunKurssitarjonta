@@ -16,7 +16,7 @@ class RegistrationForm(FlaskForm):
 
 class RegistrationSearchForm(FlaskForm):
     choices = [("Client name", "Client name"),
-               ("Phone number", "Email address"), ("Email address", "Email address"),]
+               ("Phone number", "Phone number"), ("Email address", "Email address"),]
     select = SelectField("Search for a registration:", choices=choices)
     search = StringField('')
 
