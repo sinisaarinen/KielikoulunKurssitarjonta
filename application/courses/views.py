@@ -8,6 +8,7 @@ from application.registrations.models import Registration
 
 @app.route("/courses", methods=['GET', 'POST'])
 def courses_index():
+
     search = CourseSearchForm(request.form)
     if request.method == 'POST':
         return search_results(search)

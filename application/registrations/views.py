@@ -10,7 +10,7 @@ from application.courses.forms import CourseForm
 @app.route("/registrations/all", methods=["GET"])
 @login_required(["CLIENT"])
 def registrations_index():
-    return render_template("registrations/registrations_list.html", registrations = Registration.query.all(), find_course=Registration.find_course_name(current_user.id))
+    return render_template("registrations/registrations_list.html", course = Course.query.all(), registration = Registration.query.all(), find_course=Registration.find_course_name(current_user.id))
 
 @app.route("/registrations/register/<course_id>")
 @login_required(["CLIENT"])
@@ -18,7 +18,7 @@ def courses_register_form(course_id):
 
     course = Course.query.get(course_id)
 
-    return render_template("registrations/register.html", course_id=course_id, form=RegistrationForm(obj=course))
+    return render_template("registrations/register.html", course_id=course_id, form=RegistrationForm())
 
 @app.route("/registrations/register/<course_id>", methods=["POST"])
 @login_required(["CLIENT"])
@@ -34,6 +34,55 @@ def courses_register(course_id):
     course = Registration(form.name.data, form.phonenumber.data, form.email.data, form.course_name.data.id)
     course.account_id = current_user.id
     db.session().add(course)
+    db.session().commit()
+
+    return redirect(url_for("registrations_index"))
+
+@app.route("/registrations/delete/<registration_id>", methods=["POST"])
+@login_required(["CLIENT"])
+def registrations_delete(registration_id):
+
+    registration = Registration.query.get(registration_id)
+    db.session.delete(registration)
+    db.session().commit()
+
+    return redirect(url_for("registrations_index"))
+
+@app.route("/registrations/edit/<registration_id>", methods=["POST"])
+@login_required(["CLIENT"])
+def registrations_edit(registration_id):
+
+    registration = Registration.query.get(registration_id)
+
+    form = RegistrationForm(request.form, obj=registration)
+
+    return render_template("registrations/edit.html", registration = registration, form = form)
+
+    registration.name = form.name.data
+    registration.phonenumber = form.phonenumber.data
+    registration.email = form.email.data
+    registration.course_name = form.course_name.data.id
+    registration.account_id = current_user.id
+    db.session().commit()
+
+    return redirect(url_for("registrations_index"))
+
+@app.route("/registrations/update/<registration_id>", methods=["POST"])
+@login_required(["CLIENT"])
+def registrations_update(registration_id):
+
+    registration = Registration.query.get(registration_id)
+
+    form = RegistrationForm(request.form, obj=registration)
+
+    if not form.validate():
+        return render_template("registrations/edit.html", registration = registration, form = form)
+
+    registration.name = form.name.data
+    registration.phonenumber = form.phonenumber.data
+    registration.email = form.email.data
+    registration.course_name = form.course_name.data.id
+    registration.account_id = current_user.id
     db.session().commit()
 
     return redirect(url_for("registrations_index"))

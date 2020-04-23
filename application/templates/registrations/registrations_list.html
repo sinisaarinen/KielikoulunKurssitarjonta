@@ -21,9 +21,17 @@
       <td>{{ response["name"] }}</td>
       <td>{{ response["phonenumber"] }}</td>
       <td>{{ response["email"] }}</td>
+      {% if current_user.role == "CLIENT" %}
+     <td><form method="POST" action="{{url_for('registrations_edit', registration_id=registration.course_id) }}">
+       {{ submit_button("Edit registration") }}
+      </form></td>
+    <td><form method="POST" action="{{url_for('registrations_delete', registration_id=registration.course_id) }}">
+       {{ submit_button("Delete registration") }}
+      </form></td>
+     {% endif %}
+{% endfor %}
    </tr>
    </tbody>
-{% endfor %}
   </table>
 {% endblock %}
 
