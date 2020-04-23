@@ -56,7 +56,7 @@
        {{ submit_button("Delete") }}
      </form></td>
      {% endif %}
-     {% if current_user.role == "CLIENT" %}
+     {% if current_user.role == "CLIENT" and course.registrationsopen == true %}
     <td><form method="POST" action="{{url_for('courses_register', course_id=course.id) }}">
        {{ submit_button("Register for the course") }}
       </form></td>
