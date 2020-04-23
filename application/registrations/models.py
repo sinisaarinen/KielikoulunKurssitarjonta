@@ -54,3 +54,13 @@ class Registration(Base):
 
         return response
 
+    @staticmethod
+    def most_popular_courses():
+        stmt = text("SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course ON Registration.course_name=course.id GROUP BY course.name ORDER BY Count(Registration.id) DESC LIMIT 3")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"coursename":row[0], "registrationcount":row[1]})
+
+        return response

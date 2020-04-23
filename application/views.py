@@ -5,4 +5,4 @@ from application.registrations.models import Registration
 
 @app.route("/")
 def index():
-    return render_template("index.html", count_courses=Course.count_courses_per_location(), count_registrations=Registration.count_registrations_per_course())
+    return render_template("index.html", count_courses=Course.count_courses_per_location(), count_registrations=Registration.count_registrations_per_course(), most_popular=Registration.most_popular_courses())

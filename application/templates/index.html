@@ -44,5 +44,23 @@
 
 {% endif %}
 
+{% if most_popular is defined and current_user.role == "ADMIN" %}
+<br>
+<p>
+  The most popular courses at the moment are:
+</p>
+
+<ul>
+  {% for response in most_popular %}
+  <li>
+    {{ response["coursename"] }}: {{ response["registrationcount"] }} registration(s)
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
+
+
+
 {% endblock %}
 
