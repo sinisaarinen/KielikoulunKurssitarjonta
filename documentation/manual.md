@@ -22,7 +22,11 @@ Kursseja voi hakea `List courses`-linkin kautta avautuvassa näkymässä. Kurssi
 
 ## Kurssille ilmoittautuminen
 
-Kurssille voi ilmoittautua client-rooliin rekisteröitynyt ja kirjautunut käyttäjä. Ilmoittautumaan pääsee klikkaamalla `List courses`-näkymästä haluamansa kurssin kohdalla `Register for the course`-nappia. Kurssille rekisteröitymiseen tarvitaan koko nimi, puhelinnumero ja toimiva sähköpostiosoite.
+Kurssille voi ilmoittautua client-rooliin rekisteröitynyt ja kirjautunut käyttäjä. Ilmoittautumaan pääsee klikkaamalla `List courses`-näkymästä haluamansa kurssin kohdalla `Register for the course`-nappia. Nappi on näkyvissä vain, jos kurssille ilmoittautuminen on auki. Kurssille rekisteröitymiseen tarvitaan koko nimi, puhelinnumero ja toimiva sähköpostiosoite.
+
+## Ilmoittautumisen muokkaaminen ja poistaminen (ei toimi vielä)
+
+Tästä lisää pian.
 
 ## Admin-ominaisuudet
 
@@ -41,3 +45,11 @@ Lisätyn kurssin voi poistaa `List courses`-näkymästä klikkaamalla kurssin oi
 ### Kurssin tai sijainnin muokkaaminen
 
 Kursseja pääsee muokkaamaan painamalla `List courses`-näkymässä `Edit`-nappia. Sijainteja taas pääsee muokkaamaan `List locations`-näkymässä `Edit location`-napista.
+
+### Kaikkien kurssi-ilmoittautumisten tarkastelu
+
+Kurssi-ilmoittautumisia pääsee tarkastelemaan painamalla yläpalkista `All registrations`.
+
+### Ilmoittautumisten hakeminen
+
+Ilmoittautumisia pääsee hakemaan asiakkaan nimen, sähköpostiosoitteen ja puhelinnumeron perusteella `All registrations`-näkymässä valitsemalla valikosta hakukriteerin, kirjoittamalla hakukenttään hakuehdon ja painamalla `Search`-nappia.
