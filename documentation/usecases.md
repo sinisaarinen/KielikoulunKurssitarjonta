@@ -18,15 +18,15 @@
   
 1.3 Kursseille ilmoittautuminen
 
-- Käyttäjä voi ilmoittautua kurssille, jos ilmoittautuminen on auki ja kurssilla on tilaa
+- Käyttäjä voi ilmoittautua kurssille, jos ilmoittautuminen on auki
 
 1.4 Kurssi-ilmoittautumisten tarkastelu
 
 - Käyttäjä voi tarkastella omia kurssi-ilmoittautumisiaan
 
-1.5 Kurssi-ilmoittautumisten muokkaus
+1.5 Kurssi-ilmoittautumisten muokkaus (ei toimi vielä)
 
-1.6 Kurssi-ilmoittautumisten poisto
+1.6 Kurssi-ilmoittautumisten poisto (ei toimi vielä)
 
 ### 2. Admin
 
@@ -47,7 +47,10 @@
 2.6 Kurssi-ilmoittautumisten hakeminen
 
 - Admin voi hakea kurssi-ilmoittautumisia
-  - Kurssin nimen perusteella
   - Asiakkaan nimen perusteella
   - Asiakkaan puhelinnumeron perusteella
   - Asiakkaan sähköpostiosoitteen perusteella
+
+2.7 Ilmoittautumisten yhteenvetojen tarkastelu
+
+- Adminille näkyy etusivulla yhteenvetoja kurssi-ilmoittautumisista
