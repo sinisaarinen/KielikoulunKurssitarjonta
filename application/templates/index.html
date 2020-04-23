@@ -1,13 +1,21 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <p>
-    Welcome!
-  </p>
+<style>
+  .custom_title {
+    font-size: 30px;
+  }
+</style>
+
+{{ error }}
+<p class="custom_title">
+  Welcome to the language school!
+</p>
 
 {% if count_courses is defined %}
+<br>
 <p>
-  The following locations have courses:
+  The following locations have available courses:
 </p>
 
 <ul>
@@ -20,6 +28,21 @@
 
 {% endif %}
 
+{% if count_registrations is defined and current_user.role == "ADMIN" %}
+<br>
+<p>
+  The following courses have active registrations:
+</p>
+
+<ul>
+  {% for response in count_registrations %}
+  <li>
+    {{ response["coursename"] }}: {{ response["registrationcount"] }} registration(s)
+  </li>
+  {% endfor %}
+</ul>
+
+{% endif %}
 
 {% endblock %}
 

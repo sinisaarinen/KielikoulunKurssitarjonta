@@ -43,3 +43,14 @@ class Registration(Base):
 
         return response
 
+    @staticmethod
+    def count_registrations_per_course():
+        stmt = text("SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course ON Registration.course_name=course.id GROUP BY course.name")
+        res = db.engine.execute(stmt)
+
+        response = []
+        for row in res:
+            response.append({"coursename":row[0], "registrationcount":row[1]})
+
+        return response
+
