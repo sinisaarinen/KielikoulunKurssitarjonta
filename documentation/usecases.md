@@ -107,3 +107,5 @@ SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course
 ON Registration.course_name=course.id GROUP BY course.name ORDER BY Count(Registration.id) DESC LIMIT 3
 
 ~~~~
+
+Ensimmäinen yllä olevista kyselyistä näkyy kaikille käyttäjille etusivulla roolista riippumatta.
