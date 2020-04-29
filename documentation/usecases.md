@@ -46,6 +46,16 @@ course_description, course.registrationsopen AS course_registrationsopen FROM co
   - opetuskielen perusteella
   - tason perusteella
   
+Esimerkki kyselystä, kun haetaan kurssin nimen perusteella:
+
+~~~~sql
+
+SELECT course.id AS course_id, course.date_created AS course_date_created, course.date_modified AS course_date_modified, course.name AS course_name, course.coursecode AS course_coursecode, course.language AS course_language, course.level AS course_level, course.spots AS course_spots, course.course_location AS course_course_location, course.description AS course_description, course.registrationsopen AS course_registrationsopen 
+FROM course 
+WHERE (course.name LIKE '%' || ? || '%')
+
+~~~~
+  
 ### 2. Asiakas
   
 2.1 Kursseille ilmoittautuminen
