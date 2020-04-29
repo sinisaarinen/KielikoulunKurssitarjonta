@@ -6,17 +6,17 @@ Kielikoulun kurssitarjonta on Helsingin yliopiston kevään 2020 Tietokantasovel
 
 Kielikoulun sivuilla on mahdollista ilmoittautua eri kielten kursseille sekä hakea ja tarkastella tarjolla olevia kursseja eri hakukriteereiden perusteella.
 
-Alustava lista toiminnoista:
+Lista toiminnoista:
 
 - rekisteröityminen ja kirjautuminen
 - uuden kurssin lisäys, muokkaus ja poisto
 - uuden kurssipaikkakunnan lisäys, muokkaus ja poisto
 - kurssille ilmoittautuminen
-- ilmoittautumisten muokkaus, peruutus ja tarkastelu (muokkaus ja peruutus eivät toimi vielä)
-- kurssien hakeminen nimen, kurssikoodin, kielen ja tason perusteella
+- ilmoittautumisten muokkaus, peruutus ja tarkastelu
+- kurssien hakeminen nimen, kurssikoodin, kielen tai tason perusteella
 - yhteenvetojen tarkastelu kursseista (näkyvissä adminille)
 - kaikkien ilmoittautumisten tarkastelu (adminille)
-- ilmoittautumisten etsiminen asiakkaan nimen, puhelinnumeron ja sähköpostiosoitteen perusteella (adminille)
+- ilmoittautumisten etsiminen asiakkaan nimen, puhelinnumeron tai sähköpostiosoitteen perusteella (adminille)
 - kurssien määrän listaus paikkakunnittain (näkyy etusivulla)
 
 ## Demosovellus
