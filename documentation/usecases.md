@@ -23,7 +23,9 @@ CURRENT_TIMESTAMP, ?, ?, ?, ?)
 
 ~~~~sql
 
-SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS account_password, account.role AS account_role 
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS 
+account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS 
+account_password, account.role AS account_role 
 FROM account 
 WHERE account.id = ?
 
@@ -50,7 +52,10 @@ Esimerkki kyselystä, kun haetaan kurssin nimen perusteella:
 
 ~~~~sql
 
-SELECT course.id AS course_id, course.date_created AS course_date_created, course.date_modified AS course_date_modified, course.name AS course_name, course.coursecode AS course_coursecode, course.language AS course_language, course.level AS course_level, course.spots AS course_spots, course.course_location AS course_course_location, course.description AS course_description, course.registrationsopen AS course_registrationsopen 
+SELECT course.id AS course_id, course.date_created AS course_date_created, course.date_modified AS course_date_modified, 
+course.name AS course_name, course.coursecode AS course_coursecode, course.language AS course_language, course.level AS 
+course_level, course.spots AS course_spots, course.course_location AS course_course_location, course.description AS 
+course_description, course.registrationsopen AS course_registrationsopen 
 FROM course 
 WHERE (course.name LIKE '%' || ? || '%')
 
@@ -61,6 +66,14 @@ WHERE (course.name LIKE '%' || ? || '%')
 2.1 Kursseille ilmoittautuminen
 
 - Asiakas voi ilmoittautua kurssille, jos ilmoittautuminen on auki
+
+~~~~sql
+
+SELECT Course.name, Registration.name, Registration.phonenumber, Registration.email, Registration.id FROM Registration JOIN 
+Course ON Registration.course_name=Course.id LEFT JOIN account ON account.id=Registration.account_id WHERE account.id = ? 
+GROUP BY Course.name, Registration.name, Registration.phonenumber, Registration.email
+
+~~~~
 
 2.2 Kurssi-ilmoittautumisten tarkastelu
 
