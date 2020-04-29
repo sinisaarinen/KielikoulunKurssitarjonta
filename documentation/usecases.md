@@ -63,9 +63,21 @@ WHERE (course.name LIKE '%' || ? || '%')
   
 ### 2. Asiakas
   
-2.1 Kursseille ilmoittautuminen
+2.1 Asiakas voi ilmoittautua kurssille, jos ilmoittautuminen on auki
 
-- Asiakas voi ilmoittautua kurssille, jos ilmoittautuminen on auki
+~~~~sql
+
+SELECT course.id AS course_id, course.date_created AS course_date_created, course.date_modified AS course_date_modified, 
+course.name AS course_name, course.coursecode AS course_coursecode, course.language AS course_language, course.level AS 
+course_level, course.spots AS course_spots, course.course_location AS course_course_location, course.description AS 
+course_description, course.registrationsopen AS course_registrationsopen 
+FROM course
+
+INSERT INTO registration (date_created, date_modified, name, phonenumber, email, course_name, account_id) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?)
+
+~~~~
+
+2.2 Asiakas voi tarkastella omia kurssi-ilmoittautumisiaan
 
 ~~~~sql
 
@@ -75,13 +87,21 @@ GROUP BY Course.name, Registration.name, Registration.phonenumber, Registration.
 
 ~~~~
 
-2.2 Kurssi-ilmoittautumisten tarkastelu
+2.3 Asiakas voi muokata omia kurssi-ilmoittautumisiaan
 
-- Asiakas voi tarkastella omia kurssi-ilmoittautumisiaan
+~~~~sql
 
-2.3 Kurssi-ilmoittautumisten muokkaus (ei toimi vielä)
+UPDATE registration SET date_modified=CURRENT_TIMESTAMP, name=?, email=? WHERE registration.id = ?
 
-2.4 Kurssi-ilmoittautumisten poisto (ei toimi vielä)
+~~~~
+
+2.4 Asiakas voi poistaa oman kurssi-ilmoittautumisensa
+
+~~~~sql
+
+DELETE FROM registration WHERE registration.id = ?
+
+~~~~
 
 ### 3. Admin
 
