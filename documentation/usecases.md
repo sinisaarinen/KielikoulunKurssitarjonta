@@ -27,7 +27,7 @@ SELECT account.id AS account_id, account.date_created AS account_date_created, a
 account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS 
 account_password, account.role AS account_role 
 FROM account 
-WHERE account.id = ?
+WHERE account.username = ? AND account.password = ?
 
 ~~~~
 
@@ -60,7 +60,17 @@ FROM course
 WHERE (course.name LIKE '%' || ? || '%')
 
 ~~~~
-  
+
+1.5 Käyttäjä voi tarkastella lisättyjä sijainteja
+
+~~~~sql
+
+SELECT location.id AS location_id, location.date_created AS location_date_created, location.date_modified AS 
+location_date_modified, location.cityname AS location_cityname, location.location AS location_location 
+FROM location
+
+~~~~
+
 ### 2. Asiakas
   
 2.1 Asiakas voi ilmoittautua kurssille, jos ilmoittautuminen on auki
@@ -105,26 +115,106 @@ DELETE FROM registration WHERE registration.id = ?
 
 ### 3. Admin
 
-3.1 Kurssien ja sijaintien lisääminen
+3.1 Admin voi lisätä kursseja ja sijainteja
 
-3.2 Kurssien ja sijaintien muokkaaminen
+~~~~sql
 
-- Admin voi muokata kurssien ja sijaintien tietoja ja avata kurssille ilmoittautumisen
+INSERT INTO course (date_created, date_modified, name, coursecode, language, level, spots, course_location, description, 
+registrationsopen) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?, ?)
 
-3.3 Kurssien ja sijaintien poistaminen
+~~~~
 
-3.4 Kurssi-ilmoittautumisten tarkastelu
+~~~~sql
 
-- Adminille on oma näkymä, jossa näkyvät kaikki kurssi-ilmoittautumiset
+INSERT INTO location (date_created, date_modified, cityname, location) VALUES (CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, ?, ?)
 
-3.5 Kurssi-ilmoittautumisten hakeminen
+~~~~
 
-- Admin voi hakea kurssi-ilmoittautumisia
+3.2 Admin voi avata kurssille ilmoittautumisen
+
+~~~~sql
+
+UPDATE course SET date_modified=CURRENT_TIMESTAMP, registrationsopen=? WHERE course.id = ?
+
+~~~~
+
+3.3 Admin voi muokata kursseja ja sijainteja
+
+~~~~sql
+
+UPDATE course SET date_modified=CURRENT_TIMESTAMP, name=?, coursecode=?, language=?, level=?, spots=?, registrationsopen=? WHERE course.id = ?
+
+~~~~
+
+~~~~sql
+
+UPDATE location SET date_modified=CURRENT_TIMESTAMP, cityname=?, location=? WHERE location.id = ?
+
+~~~~
+
+3.4 Admin voi poistaa kursseja ja sijainteja
+
+~~~~sql
+
+DELETE FROM course WHERE course.id = ?
+
+~~~~
+
+~~~~sql
+
+DELETE FROM location WHERE location.id = ?
+
+~~~~
+
+- Jos admin poistaa kurssin, poistuvat samalla myös kurssin mahdolliset ilmoittautumiset. Jos admin poistaa sijainnin, poistuvat samalla sijaintiin liittyvät kurssit ja ilmoittautumiset.
+
+3.5 Admin voi tarkastella kaikkia kurssi-ilmoittautumisia
+
+~~~~sql
+
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS 
+account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS 
+account_password, account.role AS account_role 
+FROM account 
+WHERE account.id = ?
+
+SELECT registration.id AS registration_id, registration.date_created AS registration_date_created, registration.date_modified 
+AS registration_date_modified, registration.name AS registration_name, registration.phonenumber AS registration_phonenumber, 
+registration.email AS registration_email, registration.course_name AS registration_course_name, registration.account_id AS 
+registration_account_id 
+FROM registration
+
+SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name
+
+~~~~
+
+3.6 Admin voi hakea kurssi-ilmoittautumisia
   - Asiakkaan nimen perusteella
   - Asiakkaan puhelinnumeron perusteella
   - Asiakkaan sähköpostiosoitteen perusteella
+  
+Esimerkki kyselystä, kun haetaan asiakkaan nimen perusteella:
 
-3.6 Ilmoittautumisten yhteenvetojen tarkastelu
+~~~~sql
+
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS 
+account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS 
+account_password, account.role AS account_role 
+FROM account 
+WHERE account.id = ?
+
+SELECT registration.id AS registration_id, registration.date_created AS registration_date_created, registration.date_modified 
+AS registration_date_modified, registration.name AS registration_name, registration.phonenumber AS registration_phonenumber, 
+registration.email AS registration_email, registration.course_name AS registration_course_name, registration.account_id AS 
+registration_account_id 
+FROM registration 
+WHERE (registration.name LIKE '%' || ? || '%')
+
+SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name
+
+~~~~
+
+3.7 Ilmoittautumisten yhteenvetojen tarkastelu
 
 - Admin voi tarkastella etusivulla yhteenvetoja kurssi-ilmoittautumisista
 
