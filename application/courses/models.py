@@ -48,11 +48,11 @@ class Course(Base):
     @staticmethod
     def find_location_name():
 
-        stmt = text("SELECT location.cityname FROM Course LEFT JOIN location ON Course.course_location=location.id GROUP BY location.cityname")
+        stmt = text("SELECT location.cityname, location.id FROM Course LEFT JOIN location ON Course.course_location=location.id GROUP BY location.cityname")
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"cityname":row[0]})
+            response.append({"cityname":row[0], "id":row[1]})
 
         return response

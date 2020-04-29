@@ -32,7 +32,9 @@
    <tbody>
     <tr>
 {% for response in find_coursename %}
+{% if response["id"] == registration.course_name %}
       <td>{{ response["coursename"] }}</td>
+{% endif %}
 {% endfor %}
       <td>{{ registration.name }}</td>
       <td>{{ registration.phonenumber }}</td>

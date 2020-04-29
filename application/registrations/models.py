@@ -33,24 +33,13 @@ class Registration(Base):
         return response
 
     @staticmethod
-    def find_coursename(course):
-        stmt = text("SELECT Course.name FROM Registration JOIN Course ON Registration.course_name=Course.id WHERE Course.name LIKE '%" + course + "%' GROUP BY Course.name")
+    def find_coursename():
+        stmt = text("SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name")
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"coursename":row[0]})
-
-        return response
-
-    @staticmethod
-    def find_coursenameall():
-        stmt = text("SELECT Course.name FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name")
-        res = db.engine.execute(stmt)
-
-        response = []
-        for row in res:
-            response.append({"coursename":row[0]})
+            response.append({"coursename":row[0], "id":row[1]})
 
         return response
 

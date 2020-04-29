@@ -41,7 +41,9 @@
       <td>{{ course.level }}</td>
       <td>{{ course.spots }}</td>
 {% for response in find_location %}
+{% if response["id"] == course.course_location %}
       <td>{{ response["cityname"] }}</td>
+{% endif %}
 {% endfor %}
       <td>{{ course.description }}</td>
       <td>{{ course.registrationsopen }}</td>
