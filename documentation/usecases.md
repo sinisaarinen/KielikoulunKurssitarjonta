@@ -29,7 +29,7 @@ WHERE account.id = ?
 
 ~~~~
 
-1.2 Kurssien listaus
+1.2 Asiakas voi tarkastella lisättyjä kursseja
 
 ~~~~sql
 
@@ -40,7 +40,7 @@ course_description, course.registrationsopen AS course_registrationsopen FROM co
 
 ~~~~
 
-- Kaikki käyttäjät voivat hakea ja tarkastella kursseja
+- Asiakas voi hakea kursseja
   - kurssin nimen perusteella
   - kurssikoodin perusteella
   - opetuskielen perusteella
