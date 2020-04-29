@@ -2,9 +2,9 @@
 
 ## Käyttötapaukset rooleittain
 
-### 1. Asiakas
+### 1. Kaikki roolit
 
-1.1 Asiakas voi rekisteröityä järjestelmään
+1.1 Käyttäjä voi rekisteröityä järjestelmään
 
 ~~~~sql
 
@@ -19,7 +19,7 @@ CURRENT_TIMESTAMP, ?, ?, ?, ?)
 
 ~~~~
 
-1.2 Asiakas voi kirjautua järjestelmään
+1.2 Käyttäjä voi kirjautua järjestelmään
 
 ~~~~sql
 
@@ -29,7 +29,7 @@ WHERE account.id = ?
 
 ~~~~
 
-1.2 Asiakas voi tarkastella lisättyjä kursseja
+1.3 Käyttäjä voi tarkastella lisättyjä kursseja
 
 ~~~~sql
 
@@ -40,48 +40,48 @@ course_description, course.registrationsopen AS course_registrationsopen FROM co
 
 ~~~~
 
-- Asiakas voi hakea kursseja
+1.4 Käyttäjä voi hakea kursseja
   - kurssin nimen perusteella
   - kurssikoodin perusteella
   - opetuskielen perusteella
   - tason perusteella
   
-1.3 Kursseille ilmoittautuminen
+### 2. Asiakas
+  
+2.1 Kursseille ilmoittautuminen
 
-- Käyttäjä voi ilmoittautua kurssille, jos ilmoittautuminen on auki
+- Asiakas voi ilmoittautua kurssille, jos ilmoittautuminen on auki
 
-1.4 Kurssi-ilmoittautumisten tarkastelu
+2.2 Kurssi-ilmoittautumisten tarkastelu
 
-- Käyttäjä voi tarkastella omia kurssi-ilmoittautumisiaan
+- Asiakas voi tarkastella omia kurssi-ilmoittautumisiaan
 
-1.5 Kurssi-ilmoittautumisten muokkaus (ei toimi vielä)
+2.3 Kurssi-ilmoittautumisten muokkaus (ei toimi vielä)
 
-1.6 Kurssi-ilmoittautumisten poisto (ei toimi vielä)
+2.4 Kurssi-ilmoittautumisten poisto (ei toimi vielä)
 
-### 2. Admin
+### 3. Admin
 
-2.1 Järjestelmään rekisteröityminen ja kirjautuminen
+3.1 Kurssien ja sijaintien lisääminen
 
-2.2 Kurssien ja sijaintien lisääminen
-
-2.3 Kurssien ja sijaintien muokkaaminen
+3.2 Kurssien ja sijaintien muokkaaminen
 
 - Admin voi muokata kurssien ja sijaintien tietoja ja avata kurssille ilmoittautumisen
 
-2.4 Kurssien ja sijaintien poistaminen
+3.3 Kurssien ja sijaintien poistaminen
 
-2.5 Kurssi-ilmoittautumisten tarkastelu
+3.4 Kurssi-ilmoittautumisten tarkastelu
 
 - Adminille on oma näkymä, jossa näkyvät kaikki kurssi-ilmoittautumiset
 
-2.6 Kurssi-ilmoittautumisten hakeminen
+3.5 Kurssi-ilmoittautumisten hakeminen
 
 - Admin voi hakea kurssi-ilmoittautumisia
   - Asiakkaan nimen perusteella
   - Asiakkaan puhelinnumeron perusteella
   - Asiakkaan sähköpostiosoitteen perusteella
 
-2.7 Ilmoittautumisten yhteenvetojen tarkastelu
+3.6 Ilmoittautumisten yhteenvetojen tarkastelu
 
 - Admin voi tarkastella etusivulla yhteenvetoja kurssi-ilmoittautumisista
 
