@@ -34,7 +34,7 @@ class Registration(Base):
 
     @staticmethod
     def find_coursename():
-        stmt = text("SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name")
+        stmt = text("SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name, Course.id")
         res = db.engine.execute(stmt)
 
         response = []
