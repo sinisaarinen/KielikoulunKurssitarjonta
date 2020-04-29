@@ -93,7 +93,7 @@ INSERT INTO registration (date_created, date_modified, name, phonenumber, email,
 
 SELECT Course.name, Registration.name, Registration.phonenumber, Registration.email, Registration.id FROM Registration JOIN 
 Course ON Registration.course_name=Course.id LEFT JOIN account ON account.id=Registration.account_id WHERE account.id = ? 
-GROUP BY Course.name, Registration.name, Registration.phonenumber, Registration.email
+GROUP BY Course.name, Registration.name, Registration.phonenumber, Registration.email, Registration.id
 
 ~~~~
 
@@ -184,7 +184,8 @@ registration.email AS registration_email, registration.course_name AS registrati
 registration_account_id 
 FROM registration
 
-SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name
+SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name, 
+Course.id
 
 ~~~~
 
@@ -210,7 +211,8 @@ registration_account_id
 FROM registration 
 WHERE (registration.name LIKE '%' || ? || '%')
 
-SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id GROUP BY Course.name
+SELECT Course.name, Course.id FROM Registration JOIN Course ON Registration.course_name=Course.id BY Course.name, 
+Course.id
 
 ~~~~
 
