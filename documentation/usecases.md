@@ -4,9 +4,30 @@
 
 ### 1. Asiakas
 
-1.1 Järjestelmään rekisteröityminen ja kirjautuminen
+1.1 Asiakas voi rekisteröityä järjestelmään
 
-- Kursseille voi ilmoittautua vain rekisteröitynyt ja kirjautunut käyttäjä
+~~~~sql
+
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS
+account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS
+account_password, account.role AS account_role 
+FROM account 
+WHERE account.username = ?
+
+INSERT INTO account (date_created, date_modified, name, username, password, role) VALUES (CURRENT_TIMESTAMP, 
+CURRENT_TIMESTAMP, ?, ?, ?, ?)
+
+~~~~
+
+1.2 Asiakas voi kirjautua järjestelmään
+
+~~~~sql
+
+SELECT account.id AS account_id, account.date_created AS account_date_created, account.date_modified AS account_date_modified, account.name AS account_name, account.username AS account_username, account.password AS account_password, account.role AS account_role 
+FROM account 
+WHERE account.id = ?
+
+~~~~
 
 1.2 Kurssien listaus
 
