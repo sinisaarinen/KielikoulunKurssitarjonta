@@ -10,6 +10,13 @@
 
 1.2 Kurssien listaus
 
+~~~~sql
+
+SELECT course.id AS course_id, course.date_created AS course_date_created, course.date_modified AS course_date_modified, course.name AS course_name, course.coursecode AS course_coursecode, course.language AS course_language, course.level AS course_level, course.spots AS course_spots, course.course_location AS course_course_location, course.description AS course_description, course.registrationsopen AS course_registrationsopen 
+FROM course
+
+~~~~
+
 - Kaikki käyttäjät voivat hakea ja tarkastella kursseja
   - kurssin nimen perusteella
   - kurssikoodin perusteella
@@ -57,10 +64,13 @@
 
 ~~~~sql
 
-SELECT location.cityname, COUNT(Course.id) FROM Course LEFT JOIN location ON Course.course_location=location.id GROUP BY location.cityname
+SELECT location.cityname, COUNT(Course.id) FROM Course LEFT JOIN location 
+ON Course.course_location=location.id GROUP BY location.cityname
 
-SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course ON Registration.course_name=course.id GROUP BY course.name
+SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course 
+ON Registration.course_name=course.id GROUP BY course.name
 
-SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course ON Registration.course_name=course.id GROUP BY course.name ORDER BY Count(Registration.id) DESC LIMIT 3
+SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course 
+ON Registration.course_name=course.id GROUP BY course.name ORDER BY Count(Registration.id) DESC LIMIT 3
 
 ~~~~
