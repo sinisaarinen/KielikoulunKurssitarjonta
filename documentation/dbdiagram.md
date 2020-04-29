@@ -1,7 +1,5 @@
 # Tietokantakaavio
 
-Huom.! Availability tullaan lisäämään Course-tauluun lähiaikoina.
-
 ![](dbdiagram_updated2.png)
 
 ## CREATE TABLE -lauseet
