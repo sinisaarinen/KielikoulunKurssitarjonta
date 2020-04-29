@@ -53,4 +53,14 @@
 
 2.7 Ilmoittautumisten yhteenvetojen tarkastelu
 
-- Adminille näkyy etusivulla yhteenvetoja kurssi-ilmoittautumisista
+- Admin voi tarkastella etusivulla yhteenvetoja kurssi-ilmoittautumisista
+
+~~~~sql
+
+SELECT location.cityname, COUNT(Course.id) FROM Course LEFT JOIN location ON Course.course_location=location.id GROUP BY location.cityname
+
+SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course ON Registration.course_name=course.id GROUP BY course.name
+
+SELECT course.name, COUNT(Registration.id) FROM Registration LEFT JOIN course ON Registration.course_name=course.id GROUP BY course.name ORDER BY Count(Registration.id) DESC LIMIT 3
+
+~~~~
