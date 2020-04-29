@@ -23,12 +23,12 @@ class Registration(Base):
 
     @staticmethod
     def find_course_name(current_id):
-        stmt = text("SELECT Course.name, Registration.name, Registration.phonenumber, Registration.email FROM Registration JOIN Course ON Registration.course_name=Course.id LEFT JOIN account ON account.id=Registration.account_id WHERE account.id = :current GROUP BY Course.name, Registration.name, Registration.phonenumber, Registration.email").params(current = current_id)
+        stmt = text("SELECT Course.name, Registration.name, Registration.phonenumber, Registration.email, Registration.id FROM Registration JOIN Course ON Registration.course_name=Course.id LEFT JOIN account ON account.id=Registration.account_id WHERE account.id = :current GROUP BY Course.name, Registration.name, Registration.phonenumber, Registration.email").params(current = current_id)
         res = db.engine.execute(stmt)
 
         response = []
         for row in res:
-            response.append({"course_name":row[0], "name":row[1], "phonenumber":row[2], "email":row[3]})
+            response.append({"course_name":row[0], "name":row[1], "phonenumber":row[2], "email":row[3], "id":row[4]})
 
         return response
 
