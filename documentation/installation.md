@@ -37,16 +37,26 @@ Voit käyttää sovellusta myös Herokussa. Tällöin sinun tulee luoda tunnukse
 Lataa seuraavaksi käyttöösi Herokun [komentorivityövälineet](https://devcenter.heroku.com/articles/heroku-cli).
 
 Nyt voit luoda projektin komennolla
-```heroku create <projektin_nimi>```
+```
+heroku create <projektin_nimi>
+```
 
 Lisää tämän jälkeen Herokun etärepositorio paikalliseen versionhallintaan komennolla
-```git remote add heroku https://git.heroku.com/<projektin_nimi>.git```
+```
+git remote add heroku https://git.heroku.com/<projektin_nimi>.git
+```
 
 Määritä Herokuun ympäristömuuttuja komennolla
-```heroku config:set HEROKU=1```
+```
+heroku config:set HEROKU=1
+```
 
 ja lisää sovellukselle tietokanta komennolla
-```heroku addons:add heroku-postgresql:hobby-dev```
+```
+heroku addons:add heroku-postgresql:hobby-dev
+```
 
 Voit pushata projektin Herokuun komennolla
-```git push heroku master```
+```
+git push heroku master
+```
