@@ -31,17 +31,17 @@ def courses_register(course_id):
     if not form.validate():
         return render_template("registrations/register.html", course = course, form = form)
 
+    chosencourse = Course.query.get(form.course_name.data.id)
+    if not chosencourse.registrationsopen:
+        return render_template("registrations/register.html", course = course, form = form, error = "Registrations for the course selected are not open")
+
     course = Registration(form.name.data, form.phonenumber.data, form.email.data, form.course_name.data.id)
     course.account_id = current_user.id
 
-    course2 = form.course_name.data.if
-    if not course2.registrationsopen:
-        return render_template("registrations/register.html", course2 = course2, form = form, error = "Registrations for the course selected are not open")
-    else:
-        db.session().add(course)
-        db.session().commit()
+    db.session().add(course)
+    db.session().commit()
 
-        return redirect(url_for("registrations_index"))
+    return redirect(url_for("registrations_index"))
 
 @app.route("/registrations/delete/<registration_id>", methods=["POST"])
 @login_required(["CLIENT"])
