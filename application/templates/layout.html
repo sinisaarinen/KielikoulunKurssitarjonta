@@ -16,8 +16,11 @@
        <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('auth_form') }} ">Sign up</a>
+          <a class="nav-link" href="{{ url_for('index') }} ">Front page</a>
             </li>
+          <a class="nav-link" href="{{ url_for('auth_form') }}">Sign up</a>
+          </li>
+          <li class="nav-item"> 
          {% if current_user.role == "CLIENT" %}
           <li class="nav-item">
               <a class="nav-link" href="{{ url_for('registrations_index') }} ">My registrations</a>
