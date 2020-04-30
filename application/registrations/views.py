@@ -33,10 +33,14 @@ def courses_register(course_id):
 
     course = Registration(form.name.data, form.phonenumber.data, form.email.data, form.course_name.data.id)
     course.account_id = current_user.id
-    db.session().add(course)
-    db.session().commit()
 
-    return redirect(url_for("registrations_index"))
+    if not course.registrationsopen:
+        return render_template("registrations/register.html", course = course, form = form, error = "Registrations for the course selected are not open")
+    else:
+        db.session().add(course)
+        db.session().commit()
+
+        return redirect(url_for("registrations_index"))
 
 @app.route("/registrations/delete/<registration_id>", methods=["POST"])
 @login_required(["CLIENT"])

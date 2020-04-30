@@ -10,6 +10,7 @@ from application.registrations.models import Registration
 def courses_index():
 
     search = CourseSearchForm(request.form)
+
     if request.method == 'POST':
         return search_results(search)
     return render_template("courses/list.html", courses = Course.query.all(), form=search, find_location=Course.find_location_name())
