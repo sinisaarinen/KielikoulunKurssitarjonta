@@ -26,7 +26,7 @@ Kurssille voi ilmoittautua client-rooliin rekisteröitynyt ja kirjautunut käytt
 
 ## Ilmoittautumisen muokkaaminen ja poistaminen
 
-Kun olet ilmoittautunut yhdelle tai useammalle kurssille, kurssit näkyvät kirjautuneelle client-rooliselle käyttäjälle klikkaamalla yläpalkista `My registrations`. Ilmoittautumisen tietoja pääsee muokkaamaan painamalla `Edit registration` ja ilmoittautumisen voi poistaa painamalla `Delete registration`.
+Kun olet ilmoittautunut yhdelle tai useammalle kurssille, kurssit näkyvät kirjautuneelle client-rooliselle käyttäjälle klikkaamalla yläpalkista `My registrations`. Ilmoittautumisen tietoja pääsee muokkaamaan painamalla `Edit registration` ja ilmoittautumisen voi poistaa painamalla `Delete registration`. Kurssin vaihtaminen ilmoittautumista muokatessa sellaiseksi kurssiksi, jolle ilmoittautuminen ei ole auki ei onnistu.
 
 ## Admin-ominaisuudet
 
