@@ -2,6 +2,8 @@
 {% from "styles.html" import render_field, submit_button, render_radiofield %}
 
 {% block body %}
+{{ error }}
+<br>
 <form method="POST" action="{{ url_for('registrations_update', registration_id=registration.id) }}">
         <dl>
           {{ render_field(form.name) }}

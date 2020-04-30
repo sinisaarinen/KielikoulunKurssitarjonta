@@ -63,6 +63,7 @@ def registrations_edit(registration_id):
     registration.email = form.email.data
     registration.course_name = form.course_name.data.id
     registration.account_id = current_user.id
+
     db.session().commit()
 
     return redirect(url_for("registrations_index"))
@@ -83,9 +84,14 @@ def registrations_update(registration_id):
     registration.email = form.email.data
     registration.course_name = form.course_name.data.id
     registration.account_id = current_user.id
-    db.session().commit()
+ 
+    course = Course.query.get(registration.course_name)
+    if not course.registrationsopen:
+        return render_template("registrations/edit.html", registration = registration, form = form, error = "Registrations for the course selected are not open")
+    else:
+        db.session().commit()
 
-    return redirect(url_for("registrations_index"))
+        return redirect(url_for("registrations_index"))
 
 @app.route("/registrations_all/", methods=['GET', 'POST'])
 @login_required(["ADMIN"])
